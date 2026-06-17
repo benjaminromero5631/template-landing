@@ -219,18 +219,12 @@ function TestimoniosHero() {
 
       <div className="max-w-5xl mx-auto flex flex-col items-center text-center">
         <FadeIn>
-          {/* Badge pill */}
-          <span
-            className="inline-block font-body text-[11px] tracking-[0.22em] uppercase mb-6 px-5 py-2"
-            style={{
-              color: "var(--esmeralda-claro)",
-              background: "rgba(82,183,136,0.08)",
-              borderRadius: 999,
-              textShadow: "0 0 18px rgba(82,183,136,0.6)",
-            }}
+          <p
+            className="font-body text-[11px] tracking-[0.28em] uppercase mb-5"
+            style={{ color: "var(--esmeralda-claro)" }}
           >
-            Pero no me creas a mí..
-          </span>
+            NO me creas a mí como especialista
+          </p>
 
           <h2
             className="max-w-[640px] mx-auto mb-4"
