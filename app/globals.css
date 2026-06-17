@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --celeste: #7EC8E3;
+  --dorado: #C9A96E;
+  --white: #F5F0EB;
+  --bg: #0A0A0A;
+  --bg-modal: #111116;
+  --txt-2: #A89880;
+  --txt-3: #6B6258;
+  --hairline: rgba(255,255,255,0.12);
+  --font-serif: var(--font-cormorant), serif;
+  --font-sans: var(--font-dm-sans), sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #F5F0EB;
+  background: #0A0A0A;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fade-hidden {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-visible {
+  opacity: 1;
+  transform: none;
+}
