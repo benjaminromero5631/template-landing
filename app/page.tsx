@@ -696,15 +696,15 @@ function Avalado() {
 const problemas = [
   {
     titulo: "Protocolos genéricos",
-    desc: "Sin personalización por tipo de piel",
+    desc: "El mismo tratamiento para todas, sin considerar tu tipo de piel ni tus necesidades específicas.",
   },
   {
     titulo: "Resultados inconsistentes",
-    desc: "Cada sesión es una lotería",
+    desc: "Cada sesión se siente distinta. No hay forma de saber si realmente estás progresando.",
   },
   {
     titulo: "Sin seguimiento real",
-    desc: "Te dejan sola después del tratamiento",
+    desc: "Te dejan sola después de la sesión, sin acompañamiento ni revisión de cómo evoluciona tu piel.",
   },
 ];
 
@@ -713,21 +713,45 @@ function ElProblema() {
     <section
       style={{
         width: "100%",
-        backgroundColor: "var(--bg-alt)",
+        backgroundColor: "var(--bg)",
         borderTop: "1px solid var(--hairline)",
-        borderBottom: "1px solid var(--hairline)",
         padding: "96px 16px",
       }}
     >
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
         <FadeIn>
           <Badge>El problema..</Badge>
+
           <h2
-            className="font-display text-[36px] md:text-[44px] leading-tight mb-14"
-            style={{ fontWeight: 400, maxWidth: 600, margin: "0 auto 56px" }}
+            className="max-w-[620px] mx-auto mb-5"
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontWeight: 400,
+              fontSize: "clamp(30px, 6vw, 48px)",
+              lineHeight: 1.15,
+              color: "var(--white)",
+            }}
           >
-            ¿Cansada de tratamientos que no muestran resultados reales?
+            ¿Cansada de probar tratamientos que no muestran{" "}
+            <span
+              style={{
+                background:
+                  "linear-gradient(90deg, var(--white) 0%, var(--esmeralda-claro) 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              resultados reales?
+            </span>
           </h2>
+
+          <p
+            className="font-body text-[15px] leading-relaxed mb-14"
+            style={{ color: "var(--txt-2)", maxWidth: 480, margin: "0 auto 56px" }}
+          >
+            Has invertido tiempo y dinero en tratamientos que prometen mucho
+            pero entregan poco, dejándote con la misma sensación de siempre.
+          </p>
         </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
@@ -735,21 +759,17 @@ function ElProblema() {
             <FadeIn key={i} delay={i * 110}>
               <div
                 style={{
-                  backgroundColor: "var(--bg)",
+                  backgroundColor: "var(--bg-alt)",
                   border: "1px solid var(--hairline)",
+                  borderRadius: 8,
                   padding: "36px 28px",
                   textAlign: "left",
                 }}
               >
+                <p className="text-[22px] mb-4">❌</p>
                 <p
-                  className="text-[22px] mb-3"
+                  className="font-body font-semibold text-[15px] mb-3"
                   style={{ color: "var(--esmeralda-claro)" }}
-                >
-                  ❌
-                </p>
-                <p
-                  className="font-body font-semibold text-[15px] mb-2"
-                  style={{ color: "var(--white)" }}
                 >
                   {p.titulo}
                 </p>
@@ -1114,9 +1134,9 @@ export default function Page() {
       <Hero onCta={() => setFormOpen(true)} />
       <TestimoniosHero />
       <Reconocidos onCta={() => setFormOpen(true)} />
+      <ElProblema />
       <Features />
       <Avalado />
-      <ElProblema />
       <LaSolucion />
       <VideoTestimonios onCta={() => setFormOpen(true)} />
       <TestimonialsStats onCta={() => setFormOpen(true)} />
