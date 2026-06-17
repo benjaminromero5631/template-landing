@@ -360,6 +360,149 @@ function TestimoniosHero() {
   );
 }
 
+/* ─── Reconocidos por ─── */
+function Reconocidos({ onCta }: { onCta: () => void }) {
+  return (
+    <section
+      style={{
+        width: "100%",
+        backgroundColor: "var(--bg-alt)",
+        borderTop: "1px solid var(--hairline)",
+        padding: "96px 16px",
+      }}
+    >
+      <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
+        <FadeIn>
+          <h2
+            className="max-w-[680px] mx-auto mb-12"
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontWeight: 400,
+              fontSize: "clamp(30px, 6vw, 48px)",
+              lineHeight: 1.15,
+              color: "var(--white)",
+            }}
+          >
+            Reconocidos por la Sociedad Chilena de Medicina Estética:{" "}
+            <span
+              style={{
+                background:
+                  "linear-gradient(90deg, var(--white) 0%, var(--esmeralda-claro) 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Un Protocolo Validado
+            </span>
+          </h2>
+
+          {/* Imagen placeholder */}
+          {/* TODO: insertar foto del equipo médico real */}
+          <div
+            style={{
+              width: "100%",
+              maxWidth: 700,
+              margin: "0 auto",
+              border: "1px solid var(--hairline)",
+              borderRadius: 8,
+              overflow: "hidden",
+            }}
+          >
+            <div
+              style={{
+                width: "100%",
+                aspectRatio: "16/9",
+                background: "linear-gradient(160deg, #0d2318 0%, #050B08 100%)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <svg
+                width="64"
+                height="64"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--txt-3)"
+                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </div>
+
+            {/* Stats integradas */}
+            <div
+              className="grid grid-cols-3"
+              style={{ backgroundColor: "var(--bg-alt)" }}
+            >
+              {[
+                { value: "+850", label: "Pacientes tratadas" },
+                { value: "97%", label: "Tasa de satisfacción" },
+                { value: "8", label: "Años de trayectoria" },
+              ].map((s, i) => (
+                <div
+                  key={i}
+                  className="flex flex-col items-center py-8 gap-2"
+                  style={{
+                    borderTop: "1px solid var(--hairline)",
+                    borderRight: i < 2 ? "1px solid var(--hairline)" : "none",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "var(--font-serif)",
+                      fontSize: "clamp(32px, 6vw, 48px)",
+                      lineHeight: 1,
+                      color: "var(--esmeralda-claro)",
+                      fontWeight: 400,
+                    }}
+                  >
+                    {s.value}
+                  </p>
+                  <p
+                    className="font-body text-[11px] tracking-[0.12em] uppercase"
+                    style={{ color: "var(--txt-3)" }}
+                  >
+                    {s.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div style={{ marginTop: 48 }}>
+            <button
+              onClick={onCta}
+              className="font-body text-[12px] tracking-[0.2em] uppercase px-10 py-5"
+              style={{
+                border: "2px solid var(--dorado)",
+                color: "var(--dorado)",
+                background: "transparent",
+                cursor: "pointer",
+                borderRadius: 0,
+                transition: "background .3s ease, color .3s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "var(--dorado)";
+                e.currentTarget.style.color = "var(--bg)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.color = "var(--dorado)";
+              }}
+            >
+              Agenda tu evaluación gratuita
+            </button>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
 /* ─── Features (4 columnas) ─── */
 const features = [
   {
@@ -970,6 +1113,7 @@ export default function Page() {
     <>
       <Hero onCta={() => setFormOpen(true)} />
       <TestimoniosHero />
+      <Reconocidos onCta={() => setFormOpen(true)} />
       <Features />
       <Avalado />
       <ElProblema />
