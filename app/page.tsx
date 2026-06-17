@@ -9,11 +9,12 @@ import LeadForm from "@/components/LeadForm";
 function Badge({ children }: { children: React.ReactNode }) {
   return (
     <span
-      className="inline-block font-body text-[11px] tracking-[0.22em] uppercase mb-6 px-4 py-2"
+      className="inline-block font-body text-[11px] tracking-[0.22em] uppercase mb-6 px-5 py-2"
       style={{
-        border: "1px solid var(--esmeralda-claro)",
         color: "var(--esmeralda-claro)",
-        boxShadow: "0 0 14px var(--glow)",
+        background: "rgba(82,183,136,0.08)",
+        borderRadius: 999,
+        textShadow: "0 0 18px rgba(82,183,136,0.6)",
       }}
     >
       {children}
@@ -31,7 +32,8 @@ function VslBox() {
           position: "relative",
           width: "100%",
           paddingTop: "56.25%",
-          border: "2px solid var(--esmeralda)",
+          border: "4px solid var(--esmeralda-claro)",
+          borderRadius: 12,
           background:
             "radial-gradient(ellipse at 50% 50%, #0d2318 0%, var(--bg) 70%)",
           overflow: "hidden",
@@ -39,8 +41,8 @@ function VslBox() {
       >
         <style>{`
           @keyframes vslGlow {
-            0%, 100% { box-shadow: 0 0 20px 4px rgba(45,106,79,0); }
-            50%       { box-shadow: 0 0 60px 12px var(--glow); }
+            0%, 100% { box-shadow: 0 0 40px 6px rgba(82,183,136,0.25); }
+            50%       { box-shadow: 0 0 80px 10px rgba(82,183,136,0.4); }
           }
           .vsl-outer { animation: vslGlow 3.4s ease-in-out infinite; }
         `}</style>
@@ -94,8 +96,24 @@ function Hero({ onCta }: { onCta: () => void }) {
       style={{
         backgroundColor: "var(--bg)",
         padding: "88px 16px 104px",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
+      {/* Spotlight superior */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "60%",
+          background:
+            "radial-gradient(60% 40% at 50% 0%, rgba(82,183,136,0.22) 0%, rgba(5,11,8,0) 70%)",
+          pointerEvents: "none",
+        }}
+      />
       <FadeIn>
         <Badge>Solo para mujeres que buscan resultados reales</Badge>
 
