@@ -189,6 +189,183 @@ function Hero({ onCta }: { onCta: () => void }) {
   );
 }
 
+/* ─── Testimonios en video (debajo del Hero) ─── */
+function TestimoniosHero() {
+  return (
+    <section
+      style={{
+        width: "100%",
+        backgroundColor: "var(--bg-alt)",
+        borderTop: "1px solid var(--hairline)",
+        padding: "96px 16px",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Spotlight */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "50%",
+          background:
+            "radial-gradient(60% 40% at 50% 0%, rgba(82,183,136,0.18) 0%, rgba(10,26,18,0) 70%)",
+          pointerEvents: "none",
+        }}
+      />
+
+      <div className="max-w-5xl mx-auto flex flex-col items-center text-center">
+        <FadeIn>
+          {/* Badge pill */}
+          <span
+            className="inline-block font-body text-[11px] tracking-[0.22em] uppercase mb-6 px-5 py-2"
+            style={{
+              color: "var(--esmeralda-claro)",
+              background: "rgba(82,183,136,0.08)",
+              borderRadius: 999,
+              textShadow: "0 0 18px rgba(82,183,136,0.6)",
+            }}
+          >
+            Pero no me creas a mí..
+          </span>
+
+          <h2
+            className="max-w-[640px] mx-auto mb-4"
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontWeight: 400,
+              fontSize: "clamp(32px, 7vw, 52px)",
+              lineHeight: 1.1,
+              color: "var(--white)",
+            }}
+          >
+            Resultados que hablan{" "}
+            <span
+              style={{
+                background:
+                  "linear-gradient(90deg, var(--white) 0%, var(--esmeralda-claro) 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              por sí solos
+            </span>
+          </h2>
+
+          <p
+            className="font-body text-[15px] leading-relaxed mb-14"
+            style={{ color: "var(--txt-2)", maxWidth: 480, margin: "0 auto 56px" }}
+          >
+            Antes de agendar, mira los resultados reales de quienes ya
+            confiaron en nosotros.
+          </p>
+        </FadeIn>
+
+        {/* Grid de videos */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
+          {["Paciente 1", "Paciente 2", "Paciente 3", "Paciente 4", "Paciente 5", "Paciente 6"].map(
+            (nombre, i) => (
+              <FadeIn key={i} delay={i * 80}>
+                {/* TODO: insertar testimonio real - nombre, video, cita */}
+                <div className="flex flex-col">
+                  {/* Thumbnail */}
+                  <div
+                    style={{
+                      position: "relative",
+                      width: "100%",
+                      aspectRatio: "9/16",
+                      background:
+                        "linear-gradient(160deg, #0d2318 0%, var(--bg) 100%)",
+                      border: "1px solid var(--hairline)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    {/* Play button */}
+                    <div
+                      style={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: "50%",
+                        background: "rgba(82,183,136,0.15)",
+                        border: "2px solid var(--esmeralda-claro)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        boxShadow: "0 0 24px rgba(82,183,136,0.3)",
+                      }}
+                    >
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="var(--esmeralda-claro)"
+                      >
+                        <polygon points="6,4 20,12 6,20" />
+                      </svg>
+                    </div>
+
+                    {/* Barra de progreso falsa */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: 14,
+                        left: 16,
+                        right: 16,
+                        height: 2,
+                        background: "rgba(82,183,136,0.15)",
+                        borderRadius: 2,
+                      }}
+                    >
+                      <div
+                        style={{
+                          position: "absolute",
+                          left: 0,
+                          top: 0,
+                          width: `${28 + i * 11}%`,
+                          height: "100%",
+                          background: "var(--esmeralda-claro)",
+                          borderRadius: 2,
+                        }}
+                      />
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: "50%",
+                          left: `${28 + i * 11}%`,
+                          transform: "translate(-50%, -50%)",
+                          width: 8,
+                          height: 8,
+                          borderRadius: "50%",
+                          background: "var(--esmeralda-claro)",
+                          boxShadow: "0 0 6px var(--esmeralda-claro)",
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Nombre */}
+                  <p
+                    className="font-body text-[13px] mt-3 text-left"
+                    style={{ color: "var(--txt-2)" }}
+                  >
+                    {nombre}
+                  </p>
+                </div>
+              </FadeIn>
+            )
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── Features (4 columnas) ─── */
 const features = [
   {
@@ -798,6 +975,7 @@ export default function Page() {
   return (
     <>
       <Hero onCta={() => setFormOpen(true)} />
+      <TestimoniosHero />
       <Features />
       <Avalado />
       <ElProblema />
