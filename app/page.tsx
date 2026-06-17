@@ -795,50 +795,216 @@ function LaSolucion() {
       style={{
         width: "100%",
         backgroundColor: "var(--bg)",
+        borderTop: "1px solid var(--hairline)",
         padding: "96px 16px",
       }}
     >
-      <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
+      <div className="max-w-5xl mx-auto">
         <FadeIn>
-          <Badge>La solución..</Badge>
-          <h2
-            className="font-display text-[36px] md:text-[44px] leading-tight mb-6"
-            style={{ fontWeight: 400, maxWidth: 560, margin: "0 auto 24px" }}
-          >
-            Un protocolo personalizado que se adapta a tu piel
-          </h2>
-          <p
-            className="font-body text-[15px] leading-relaxed mb-10"
-            style={{ color: "var(--txt-2)", maxWidth: 480, margin: "0 auto 40px" }}
-          >
-            Cada paciente es única. Por eso diseñamos un plan específico para tu
-            tipo de piel, tu ritmo de vida y tus objetivos reales.
-          </p>
+          <div className="flex justify-center mb-12">
+            <Badge>La solución..</Badge>
+          </div>
 
-          <div className="flex flex-col gap-4 items-start text-left max-w-md mx-auto">
-            {[
-              "Evaluación profesional antes de cada sesión",
-              "Seguimiento fotográfico de tus resultados",
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <span
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Panel mockup — columna izquierda */}
+            <div
+              style={{
+                backgroundColor: "var(--bg-alt)",
+                border: "1px solid var(--hairline)",
+                borderRadius: 12,
+                overflow: "hidden",
+              }}
+            >
+              {/* Header del panel */}
+              <div
+                style={{
+                  borderBottom: "1px solid var(--hairline)",
+                  padding: "16px 20px",
+                  display: "flex",
+                  gap: 24,
+                  alignItems: "center",
+                }}
+              >
+                {["Resumen", "Evaluaciones", "Progreso"].map((item, i) => (
+                  <span
+                    key={i}
+                    className="font-body text-[12px] tracking-[0.1em]"
+                    style={{
+                      color: i === 0 ? "var(--esmeralda-claro)" : "var(--txt-3)",
+                      borderBottom: i === 0 ? "1px solid var(--esmeralda-claro)" : "none",
+                      paddingBottom: i === 0 ? 2 : 0,
+                    }}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+
+              {/* Contenido del panel */}
+              <div style={{ padding: "24px 20px" }}>
+                <p
+                  className="font-body text-[11px] tracking-[0.14em] uppercase mb-4"
+                  style={{ color: "var(--txt-3)" }}
+                >
+                  Progreso de piel
+                </p>
+
+                {/* Sparkline SVG */}
+                <svg
+                  viewBox="0 0 200 60"
+                  width="100%"
+                  style={{ display: "block", marginBottom: 20 }}
+                >
+                  <polyline
+                    points="0,55 30,48 60,42 90,35 120,28 150,18 200,8"
+                    fill="none"
+                    stroke="var(--esmeralda-claro)"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <polyline
+                    points="0,55 30,48 60,42 90,35 120,28 150,18 200,8 200,60 0,60"
+                    fill="rgba(82,183,136,0.08)"
+                    stroke="none"
+                  />
+                  <circle cx="200" cy="8" r="4" fill="var(--esmeralda-claro)" />
+                </svg>
+
+                {/* Mini cards */}
+                <div className="grid grid-cols-2 gap-3 mb-5">
+                  {[
+                    { label: "Hidratación", value: "+34%" },
+                    { label: "Firmeza", value: "+28%" },
+                  ].map((c, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        backgroundColor: "var(--bg)",
+                        border: "1px solid var(--hairline)",
+                        borderRadius: 8,
+                        padding: "14px 16px",
+                      }}
+                    >
+                      <p
+                        className="font-body text-[10px] tracking-[0.12em] uppercase mb-1"
+                        style={{ color: "var(--txt-3)" }}
+                      >
+                        {c.label}
+                      </p>
+                      <p
+                        style={{
+                          fontFamily: "var(--font-serif)",
+                          fontSize: 28,
+                          lineHeight: 1,
+                          color: "var(--esmeralda-claro)",
+                          fontWeight: 400,
+                        }}
+                      >
+                        {c.value}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Próxima evaluación */}
+                <div
                   style={{
-                    color: "var(--esmeralda-claro)",
-                    fontSize: 18,
-                    lineHeight: 1.4,
-                    flexShrink: 0,
+                    borderTop: "1px solid var(--hairline)",
+                    paddingTop: 16,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
                   }}
                 >
-                  ✓
-                </span>
-                <p
-                  className="font-body text-[14px] leading-relaxed"
-                  style={{ color: "var(--white)" }}
-                >
-                  {item}
-                </p>
+                  <div>
+                    <p
+                      className="font-body text-[10px] tracking-[0.12em] uppercase mb-1"
+                      style={{ color: "var(--txt-3)" }}
+                    >
+                      Próxima evaluación
+                    </p>
+                    <p
+                      className="font-body text-[13px]"
+                      style={{ color: "var(--white)" }}
+                    >
+                      15 de julio, 2025
+                    </p>
+                  </div>
+                  <span
+                    className="font-body text-[11px] tracking-[0.1em] uppercase px-3 py-2"
+                    style={{
+                      border: "1px solid var(--esmeralda)",
+                      color: "var(--esmeralda-claro)",
+                      borderRadius: 4,
+                      cursor: "default",
+                    }}
+                  >
+                    Ver ficha
+                  </span>
+                </div>
               </div>
-            ))}
+            </div>
+
+            {/* Texto — columna derecha */}
+            <div className="flex flex-col gap-6">
+              <h2
+                style={{
+                  fontFamily: "var(--font-serif)",
+                  fontWeight: 400,
+                  fontSize: "clamp(28px, 5vw, 44px)",
+                  lineHeight: 1.15,
+                  color: "var(--white)",
+                }}
+              >
+                Un protocolo personalizado que se adapta a{" "}
+                <span
+                  style={{
+                    background:
+                      "linear-gradient(90deg, var(--white) 0%, var(--esmeralda-claro) 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  tu piel
+                </span>
+              </h2>
+
+              <p
+                className="font-body text-[15px] leading-relaxed"
+                style={{ color: "var(--txt-2)" }}
+              >
+                Olvídate de los tratamientos genéricos. Cada sesión se ajusta
+                según cómo está evolucionando tu piel, con seguimiento real de
+                tus resultados.
+              </p>
+
+              <div className="flex flex-col gap-4">
+                {[
+                  "Evaluación profesional antes de cada sesión",
+                  "Seguimiento fotográfico de tus resultados",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span
+                      style={{
+                        color: "var(--esmeralda-claro)",
+                        fontSize: 18,
+                        lineHeight: 1.5,
+                        flexShrink: 0,
+                      }}
+                    >
+                      ✓
+                    </span>
+                    <p
+                      className="font-body text-[14px] leading-relaxed"
+                      style={{ color: "var(--white)" }}
+                    >
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </FadeIn>
       </div>
