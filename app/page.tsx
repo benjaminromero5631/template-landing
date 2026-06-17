@@ -11,19 +11,17 @@ import LeadForm from "@/components/LeadForm";
 /* ─── VSL Box ─── */
 function VslBox() {
   return (
-    <div style={{ width: "100%", maxWidth: 680, margin: "52px auto 0" }}>
-      {/* 16:9 container */}
+    <div style={{ width: "100%", maxWidth: 680, margin: "36px auto 0" }}>
       <div
         style={{
           position: "relative",
           width: "100%",
           paddingTop: "56.25%",
           border: "2px solid var(--celeste)",
-          background: "radial-gradient(ellipse at 50% 50%, #0d1f2d 0%, #0A0A0A 70%)",
+          background: "radial-gradient(ellipse at 50% 50%, #0d1f2d 0%, var(--bg) 70%)",
           overflow: "hidden",
         }}
       >
-        {/* Glow keyframe via inline style tag */}
         <style>{`
           @keyframes vslGlow {
             0%, 100% { box-shadow: 0 0 0 0 rgba(126,200,227,0); }
@@ -41,7 +39,6 @@ function VslBox() {
             justifyContent: "center",
           }}
         >
-          {/* Play circle */}
           <div
             style={{
               width: 76,
@@ -53,13 +50,12 @@ function VslBox() {
               justifyContent: "center",
             }}
           >
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="#0A0A0A">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#04080F">
               <polygon points="6,4 20,12 6,20" />
             </svg>
           </div>
         </div>
       </div>
-      {/* Caption row */}
       <p
         className="font-body text-[11px] tracking-[0.18em] uppercase text-center mt-4"
         style={{ color: "var(--txt-3)" }}
@@ -73,6 +69,80 @@ function VslBox() {
         Mira cómo lo lograron nuestras pacientes →
       </p>
     </div>
+  );
+}
+
+/* ─── Hero ─── */
+function Hero({ onCta }: { onCta: () => void }) {
+  return (
+    <section
+      className="w-full flex flex-col items-center text-center px-4"
+      style={{
+        backgroundColor: "var(--bg)",
+        padding: "88px 16px 104px",
+      }}
+    >
+      <FadeIn>
+        <p
+          className="font-body text-[11px] tracking-[0.28em] uppercase mb-7"
+          style={{ color: "var(--celeste)" }}
+        >
+          Clínica Estética &middot; Santiago
+        </p>
+        <h1
+          className="max-w-[720px] mx-auto mb-5"
+          style={{
+            fontFamily: "var(--font-serif)",
+            fontWeight: 500,
+            fontSize: "clamp(40px, 9vw, 68px)",
+            lineHeight: 1.05,
+            color: "var(--white)",
+          }}
+        >
+          Tu piel merece resultados reales
+        </h1>
+        <p
+          className="font-display text-[18px] mx-auto mb-5"
+          style={{
+            fontStyle: "italic",
+            fontWeight: 300,
+            color: "var(--dorado)",
+            maxWidth: 480,
+          }}
+        >
+          Sin dolor · sin cirugías · sin tiempo de recuperación
+        </p>
+        <p
+          className="font-body text-[15px] leading-relaxed max-w-[460px] mx-auto mb-10"
+          style={{ color: "var(--txt-2)", fontWeight: 300 }}
+        >
+          Tratamientos personalizados con seguimiento real. Sin protocolos genéricos. Sin promesas vacías.
+        </p>
+        <button
+          onClick={onCta}
+          className="font-body text-[12px] tracking-[0.2em] uppercase px-10 py-5"
+          style={{
+            border: "2px solid var(--white)",
+            color: "var(--white)",
+            background: "transparent",
+            cursor: "pointer",
+            borderRadius: 0,
+            transition: "background .3s ease, color .3s ease",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "var(--white)";
+            e.currentTarget.style.color = "var(--bg)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "transparent";
+            e.currentTarget.style.color = "var(--white)";
+          }}
+        >
+          Agenda tu evaluación gratuita
+        </button>
+        <VslBox />
+      </FadeIn>
+    </section>
   );
 }
 
@@ -119,11 +189,19 @@ const features = [
 
 function Features() {
   return (
-    <section className="w-full px-4 py-20" style={{ backgroundColor: "#0A0A0A" }}>
+    <section
+      style={{
+        width: "100%",
+        backgroundColor: "var(--bg-alt)",
+        borderTop: "1px solid var(--hairline)",
+        borderBottom: "1px solid var(--hairline)",
+        padding: "56px 16px",
+      }}
+    >
       <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
         {features.map((f, i) => (
           <FadeIn key={i} delay={i * 100}>
-            <div className="flex flex-col items-center text-center gap-4 py-6">
+            <div className="flex flex-col items-center text-center gap-4 py-4">
               <div style={{ color: "var(--celeste)" }}>{f.icon}</div>
               <p
                 className="font-body text-[13px] leading-snug font-medium"
@@ -169,42 +247,50 @@ const testimonials = [
 
 function Testimonials({ onCta }: { onCta: () => void }) {
   return (
-    <section className="w-full px-4 py-24" style={{ backgroundColor: "#0A0A0A" }}>
+    <section
+      style={{
+        width: "100%",
+        backgroundColor: "var(--bg)",
+        padding: "96px 16px",
+      }}
+    >
       <div className="max-w-5xl mx-auto">
         <FadeIn>
-          <h2 className="font-display text-[42px] leading-tight text-center mb-16">
+          <h2
+            className="font-display text-[42px] leading-tight text-center mb-14"
+            style={{ fontWeight: 400 }}
+          >
             Lo que dicen nuestras pacientes
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-14">
           {testimonials.map((t, i) => (
             <FadeIn key={i} delay={i * 120}>
               <div
                 className="flex flex-col h-full"
                 style={{
-                  backgroundColor: "#111116",
-                  border: "1px solid rgba(126,200,227,0.15)",
+                  backgroundColor: "var(--bg-alt)",
+                  border: "1px solid var(--hairline)",
                 }}
               >
-                {/* Image placeholder */}
+                {/* Image placeholder 4:3 */}
                 <div
                   style={{
                     position: "relative",
                     width: "100%",
-                    paddingTop: "75%", /* 4:3 */
-                    background: "linear-gradient(160deg, #0d1a22 0%, #111116 100%)",
+                    paddingTop: "75%",
+                    background: "linear-gradient(160deg, #0d1a22 0%, var(--bg-alt) 100%)",
                     overflow: "hidden",
                   }}
                 >
-                  {/* Treatment badge */}
                   <div
                     style={{
                       position: "absolute",
                       top: 14,
                       left: 14,
                       padding: "4px 10px",
-                      background: "rgba(10,10,10,0.75)",
+                      background: "rgba(4,8,15,0.75)",
                       border: "1px solid rgba(126,200,227,0.3)",
                       backdropFilter: "blur(4px)",
                     }}
@@ -216,7 +302,6 @@ function Testimonials({ onCta }: { onCta: () => void }) {
                       {t.badge}
                     </span>
                   </div>
-                  {/* Person icon */}
                   <div
                     style={{
                       position: "absolute",
@@ -226,15 +311,7 @@ function Testimonials({ onCta }: { onCta: () => void }) {
                       justifyContent: "center",
                     }}
                   >
-                    <svg
-                      width="48"
-                      height="48"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="rgba(126,200,227,0.2)"
-                      strokeWidth="1"
-                      strokeLinecap="round"
-                    >
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(126,200,227,0.18)" strokeWidth="1" strokeLinecap="round">
                       <circle cx="12" cy="8" r="4" />
                       <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
                     </svg>
@@ -242,10 +319,18 @@ function Testimonials({ onCta }: { onCta: () => void }) {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 flex flex-col gap-3 flex-1">
+                <div
+                  className="flex flex-col gap-3 flex-1"
+                  style={{ padding: "30px 28px 28px" }}
+                >
                   <p
-                    className="font-display text-[48px] leading-none"
-                    style={{ color: "var(--celeste)" }}
+                    style={{
+                      fontFamily: "var(--font-serif)",
+                      fontSize: 46,
+                      lineHeight: 1,
+                      color: "var(--celeste)",
+                      fontWeight: 400,
+                    }}
                   >
                     {t.result}
                   </p>
@@ -253,7 +338,7 @@ function Testimonials({ onCta }: { onCta: () => void }) {
                     {t.desc}
                   </p>
                   <p
-                    className="font-display text-[17px] flex-1"
+                    className="font-display text-[16px] flex-1"
                     style={{ color: "var(--white)", fontStyle: "italic", fontWeight: 300 }}
                   >
                     &ldquo;{t.quote}&rdquo;
@@ -276,19 +361,20 @@ function Testimonials({ onCta }: { onCta: () => void }) {
               onClick={onCta}
               className="font-body text-[12px] tracking-[0.2em] uppercase px-10 py-5"
               style={{
-                border: "2px solid var(--celeste)",
-                color: "var(--celeste)",
+                border: "2px solid var(--dorado)",
+                color: "var(--dorado)",
                 background: "transparent",
                 cursor: "pointer",
+                borderRadius: 0,
                 transition: "background .3s ease, color .3s ease",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "var(--celeste)";
-                e.currentTarget.style.color = "#0A0A0A";
+                e.currentTarget.style.background = "var(--dorado)";
+                e.currentTarget.style.color = "var(--bg)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = "var(--celeste)";
+                e.currentTarget.style.color = "var(--dorado)";
               }}
             >
               Quiero mi evaluación gratuita
@@ -296,59 +382,6 @@ function Testimonials({ onCta }: { onCta: () => void }) {
           </div>
         </FadeIn>
       </div>
-    </section>
-  );
-}
-
-/* ─── Hero ─── */
-function Hero({ onCta }: { onCta: () => void }) {
-  return (
-    <section
-      className="w-full min-h-screen flex flex-col items-center justify-center px-4 py-24 text-center"
-      style={{ backgroundColor: "#0A0A0A" }}
-    >
-      <FadeIn>
-        <p
-          className="font-body text-[11px] tracking-[0.28em] uppercase mb-8"
-          style={{ color: "var(--celeste)" }}
-        >
-          Clínica Estética &middot; Santiago
-        </p>
-        <h1
-          className="font-display text-[54px] md:text-[72px] leading-[1.05] max-w-[720px] mx-auto mb-6"
-          style={{ color: "var(--white)", fontWeight: 400 }}
-        >
-          Tu piel merece resultados reales
-        </h1>
-        <p
-          className="font-body text-[16px] leading-relaxed max-w-[480px] mx-auto mb-12"
-          style={{ color: "var(--txt-2)", fontWeight: 300 }}
-        >
-          Tratamientos personalizados con seguimiento real. Sin protocolos genéricos. Sin promesas vacías.
-        </p>
-        <button
-          onClick={onCta}
-          className="font-body text-[12px] tracking-[0.2em] uppercase px-10 py-5"
-          style={{
-            border: "2px solid var(--white)",
-            color: "var(--white)",
-            background: "transparent",
-            cursor: "pointer",
-            transition: "background .3s ease, color .3s ease",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "var(--white)";
-            e.currentTarget.style.color = "#0A0A0A";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "transparent";
-            e.currentTarget.style.color = "var(--white)";
-          }}
-        >
-          Agenda tu evaluación gratuita
-        </button>
-        <VslBox />
-      </FadeIn>
     </section>
   );
 }
