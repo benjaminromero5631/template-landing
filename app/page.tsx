@@ -115,8 +115,6 @@ function Hero({ onCta }: { onCta: () => void }) {
         }}
       />
       <FadeIn>
-        <Badge>Solo para mujeres que buscan resultados reales</Badge>
-
         <h1
           className="max-w-[720px] mx-auto mb-5"
           style={{
@@ -160,30 +158,32 @@ function Hero({ onCta }: { onCta: () => void }) {
           genéricos. Sin promesas vacías.
         </p>
 
-        <button
-          onClick={onCta}
-          className="font-body text-[12px] tracking-[0.2em] uppercase px-10 py-5"
-          style={{
-            border: "2px solid var(--dorado)",
-            color: "var(--dorado)",
-            background: "transparent",
-            cursor: "pointer",
-            borderRadius: 0,
-            transition: "background .3s ease, color .3s ease",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "var(--dorado)";
-            e.currentTarget.style.color = "var(--bg)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "transparent";
-            e.currentTarget.style.color = "var(--dorado)";
-          }}
-        >
-          Agenda tu evaluación gratuita
-        </button>
-
         <VslBox />
+
+        <div style={{ marginTop: 40 }}>
+          <button
+            onClick={onCta}
+            className="font-body text-[12px] tracking-[0.2em] uppercase px-10 py-5"
+            style={{
+              border: "2px solid var(--dorado)",
+              color: "var(--dorado)",
+              background: "transparent",
+              cursor: "pointer",
+              borderRadius: 0,
+              transition: "background .3s ease, color .3s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "var(--dorado)";
+              e.currentTarget.style.color = "var(--bg)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.color = "var(--dorado)";
+            }}
+          >
+            Agenda tu evaluación gratuita
+          </button>
+        </div>
       </FadeIn>
     </section>
   );
