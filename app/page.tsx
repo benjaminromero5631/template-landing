@@ -610,87 +610,6 @@ function Features() {
   );
 }
 
-/* ─── Certificacion / Avalado ─── */
-function Avalado() {
-  return (
-    <section
-      style={{
-        width: "100%",
-        backgroundColor: "var(--bg)",
-        padding: "96px 16px",
-      }}
-    >
-      <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
-        <FadeIn>
-          <h2
-            className="font-display text-[36px] md:text-[44px] leading-tight mb-12"
-            style={{ fontWeight: 400, maxWidth: 640, margin: "0 auto 48px" }}
-          >
-            Resultados Avalados Por Especialistas: Un Tratamiento Probado
-          </h2>
-
-          {/* Imagen placeholder */}
-          <div
-            style={{
-              width: "100%",
-              maxWidth: 680,
-              aspectRatio: "16/9",
-              border: "2px solid var(--esmeralda)",
-              background:
-                "linear-gradient(160deg, #0d2318 0%, var(--bg-alt) 100%)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              margin: "0 auto 56px",
-            }}
-          >
-            <svg
-              width="64"
-              height="64"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="rgba(82,183,136,0.25)"
-              strokeWidth="1"
-            >
-              <rect x="3" y="3" width="18" height="18" rx="2" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <polyline points="21 15 16 10 5 21" />
-            </svg>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 w-full max-w-2xl mx-auto">
-            {[
-              { value: "+500", label: "Pacientes tratadas" },
-              { value: "98%", label: "Satisfacción" },
-              { value: "12", label: "Años de experiencia" },
-            ].map((s, i) => (
-              <div key={i} className="flex flex-col items-center gap-2">
-                <p
-                  style={{
-                    fontFamily: "var(--font-serif)",
-                    fontSize: "clamp(36px,7vw,54px)",
-                    lineHeight: 1,
-                    color: "var(--esmeralda-claro)",
-                    fontWeight: 400,
-                  }}
-                >
-                  {s.value}
-                </p>
-                <p
-                  className="font-body text-[12px] tracking-[0.12em] uppercase"
-                  style={{ color: "var(--txt-3)" }}
-                >
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
 
 /* ─── El problema ─── */
 const problemas = [
@@ -1012,8 +931,8 @@ function LaSolucion() {
   );
 }
 
-/* ─── Video testimonios ─── */
-function VideoTestimonios({ onCta }: { onCta: () => void }) {
+/* ─── Clientes galeria ─── */
+function ClientesGaleria() {
   return (
     <section
       style={{
@@ -1025,267 +944,55 @@ function VideoTestimonios({ onCta }: { onCta: () => void }) {
     >
       <div className="max-w-5xl mx-auto">
         <FadeIn>
-          <div className="flex flex-col items-center text-center mb-14">
-            <Badge>Pero no me creas a mí..</Badge>
-            <h2
-              className="font-display text-[36px] md:text-[44px] leading-tight"
-              style={{ fontWeight: 400 }}
-            >
-              Testimonios De Pacientes Reales
-            </h2>
-          </div>
-        </FadeIn>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-14">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <FadeIn key={i} delay={i * 80}>
-              {/* TODO: insertar testimonio real */}
-              <div
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  aspectRatio: "9/16",
-                  backgroundColor: "var(--bg)",
-                  border: "1px solid var(--hairline)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <div
-                  style={{
-                    width: 52,
-                    height: 52,
-                    borderRadius: "50%",
-                    border: "1px solid rgba(82,183,136,0.3)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="rgba(82,183,136,0.5)"
-                  >
-                    <polygon points="6,4 20,12 6,20" />
-                  </svg>
-                </div>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-
-        <FadeIn>
-          <div className="flex justify-center">
-            <button
-              onClick={onCta}
-              className="font-body text-[12px] tracking-[0.2em] uppercase px-10 py-5"
-              style={{
-                border: "2px solid var(--dorado)",
-                color: "var(--dorado)",
-                background: "transparent",
-                cursor: "pointer",
-                borderRadius: 0,
-                transition: "background .3s ease, color .3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "var(--dorado)";
-                e.currentTarget.style.color = "var(--bg)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = "var(--dorado)";
-              }}
-            >
-              Quiero mi evaluación gratuita
-            </button>
-          </div>
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
-
-/* ─── Testimonials con stats ─── */
-const testimonials = [
-  {
-    badge: "Tratamiento facial intensivo",
-    result: "−6 años",
-    desc: "Reducción visible de arrugas y flacidez en solo 4 sesiones.",
-    quote: "No lo podía creer cuando vi las fotos del antes y después.",
-    name: "Valentina M.",
-    age: "43 años",
-  },
-  {
-    badge: "Protocolo anti-manchas",
-    result: "+80% firmeza",
-    desc: "Piel más uniforme y firme desde la segunda sesión.",
-    quote: "Lo que más valoro es que no me dejaron sola después del tratamiento.",
-    name: "Camila R.",
-    age: "37 años",
-  },
-  {
-    badge: "Protocolo personalizado",
-    result: "3 sesiones",
-    desc: "Plan exacto para su tipo de piel, sin protocolos genéricos.",
-    quote: "Por fin encontré un lugar que trata mi piel de forma individual.",
-    name: "Fernanda L.",
-    age: "51 años",
-  },
-];
-
-function TestimonialsStats({ onCta }: { onCta: () => void }) {
-  return (
-    <section
-      style={{
-        width: "100%",
-        backgroundColor: "var(--bg)",
-        padding: "96px 16px",
-      }}
-    >
-      <div className="max-w-5xl mx-auto">
-        <FadeIn>
+          <p
+            className="font-body text-[11px] tracking-[0.28em] uppercase mb-4 text-center"
+            style={{ color: "var(--esmeralda-claro)" }}
+          >
+            Resultados reales
+          </p>
           <h2
-            className="font-display text-[42px] leading-tight text-center mb-14"
+            className="font-display text-[36px] md:text-[44px] leading-tight text-center mb-14"
             style={{ fontWeight: 400 }}
           >
-            Lo que dicen nuestras pacientes
+            +Clientes Clínica Estética
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-14">
-          {testimonials.map((t, i) => (
-            <FadeIn key={i} delay={i * 120}>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <FadeIn key={i} delay={i * 70}>
+              {/* TODO: insertar captura/screenshot real de cliente */}
               <div
-                className="flex flex-col h-full"
                 style={{
-                  backgroundColor: "var(--bg-alt)",
+                  width: "100%",
+                  aspectRatio: "4/3",
+                  backgroundColor: "var(--bg)",
                   border: "1px solid var(--hairline)",
+                  borderRadius: 8,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
                 }}
               >
-                <div
-                  style={{
-                    position: "relative",
-                    width: "100%",
-                    paddingTop: "75%",
-                    background:
-                      "linear-gradient(160deg, #0d2318 0%, var(--bg-alt) 100%)",
-                    overflow: "hidden",
-                  }}
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--txt-3)"
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: 14,
-                      left: 14,
-                      padding: "4px 10px",
-                      background: "rgba(5,11,8,0.75)",
-                      border: "1px solid rgba(82,183,136,0.3)",
-                      backdropFilter: "blur(4px)",
-                    }}
-                  >
-                    <span
-                      className="font-body text-[10px] tracking-[0.14em] uppercase"
-                      style={{ color: "var(--esmeralda-claro)" }}
-                    >
-                      {t.badge}
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <svg
-                      width="48"
-                      height="48"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="rgba(82,183,136,0.18)"
-                      strokeWidth="1"
-                      strokeLinecap="round"
-                    >
-                      <circle cx="12" cy="8" r="4" />
-                      <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-                    </svg>
-                  </div>
-                </div>
-
-                <div
-                  className="flex flex-col gap-3 flex-1"
-                  style={{ padding: "30px 28px 28px" }}
-                >
-                  <p
-                    style={{
-                      fontFamily: "var(--font-serif)",
-                      fontSize: 46,
-                      lineHeight: 1,
-                      color: "var(--esmeralda-claro)",
-                      fontWeight: 400,
-                    }}
-                  >
-                    {t.result}
-                  </p>
-                  <p
-                    className="font-body text-[13px]"
-                    style={{ color: "var(--txt-2)" }}
-                  >
-                    {t.desc}
-                  </p>
-                  <p
-                    className="font-display text-[16px] flex-1"
-                    style={{
-                      color: "var(--white)",
-                      fontStyle: "italic",
-                      fontWeight: 300,
-                    }}
-                  >
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                  <p
-                    className="font-body text-[12px] tracking-[0.08em]"
-                    style={{ color: "var(--dorado)" }}
-                  >
-                    {t.name} &middot; {t.age}
-                  </p>
-                </div>
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <polyline points="21 15 16 10 5 21" />
+                </svg>
               </div>
             </FadeIn>
           ))}
         </div>
-
-        <FadeIn>
-          <div className="flex justify-center">
-            <button
-              onClick={onCta}
-              className="font-body text-[12px] tracking-[0.2em] uppercase px-10 py-5"
-              style={{
-                border: "2px solid var(--dorado)",
-                color: "var(--dorado)",
-                background: "transparent",
-                cursor: "pointer",
-                borderRadius: 0,
-                transition: "background .3s ease, color .3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "var(--dorado)";
-                e.currentTarget.style.color = "var(--bg)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = "var(--dorado)";
-              }}
-            >
-              Quiero mi evaluación gratuita
-            </button>
-          </div>
-        </FadeIn>
       </div>
     </section>
   );
@@ -1302,10 +1009,8 @@ export default function Page() {
       <Reconocidos onCta={() => setFormOpen(true)} />
       <ElProblema />
       <Features />
-      <Avalado />
       <LaSolucion />
-      <VideoTestimonios onCta={() => setFormOpen(true)} />
-      <TestimonialsStats onCta={() => setFormOpen(true)} />
+      <ClientesGaleria />
       <Footer />
       <LeadForm open={formOpen} onClose={() => setFormOpen(false)} />
     </>
