@@ -503,113 +503,6 @@ function Reconocidos({ onCta }: { onCta: () => void }) {
   );
 }
 
-/* ─── Features (4 columnas) ─── */
-const features = [
-  {
-    title: "Tecnología certificada",
-    icon: (
-      <svg
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="M9 12l2 2 4-4" />
-      </svg>
-    ),
-  },
-  {
-    title: "Sin cirugías",
-    icon: (
-      <svg
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <polyline points="12 6 12 12 16 14" />
-      </svg>
-    ),
-  },
-  {
-    title: "Resultados garantizados",
-    icon: (
-      <svg
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-      </svg>
-    ),
-  },
-  {
-    title: "+500 pacientes tratadas",
-    icon: (
-      <svg
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-      </svg>
-    ),
-  },
-];
-
-function Features() {
-  return (
-    <section
-      style={{
-        width: "100%",
-        backgroundColor: "var(--bg-alt)",
-        borderTop: "1px solid var(--hairline)",
-        borderBottom: "1px solid var(--hairline)",
-        padding: "56px 16px",
-      }}
-    >
-      <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-        {features.map((f, i) => (
-          <FadeIn key={i} delay={i * 100}>
-            <div className="flex flex-col items-center text-center gap-4 py-4">
-              <div style={{ color: "var(--esmeralda-claro)" }}>{f.icon}</div>
-              <p
-                className="font-body text-[13px] leading-snug font-medium"
-                style={{ color: "var(--white)" }}
-              >
-                {f.title}
-              </p>
-            </div>
-          </FadeIn>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 
 /* ─── El problema ─── */
 const problemas = [
@@ -1008,7 +901,6 @@ export default function Page() {
       <TestimoniosHero />
       <Reconocidos onCta={() => setFormOpen(true)} />
       <ElProblema />
-      <Features />
       <LaSolucion />
       <ClientesGaleria />
       <Footer />
