@@ -110,7 +110,7 @@ export const config = {
   },
   urls: {
     webhookN8n:
-      "https://godkeys-n8n.djq22s.easypanel.host/webhook/clinica-lead",
+      "https://godkeys-n8n1.djq22s.easypanel.host/webhook/clinica-lead",
     redirectAgendar: "https://estetica-crm.vercel.app/agendar",
   },
   footer: {
