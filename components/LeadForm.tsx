@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { config } from "@/lib/config";
 
 interface LeadFormProps {
   open: boolean;
@@ -42,10 +43,10 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
     const fallback = () => {
       setLoading(false);
       setSuccess(true);
-      setTimeout(() => { window.location.href = "https://estetica-crm.vercel.app/agendar"; }, 1000);
+      setTimeout(() => { window.location.href = config.urls.redirectAgendar; }, 1000);
     };
     try {
-      const res = await fetch("https://godkeys-n8n.djq22s.easypanel.host/webhook/clinica-lead", {
+      const res = await fetch(config.urls.webhookN8n, {
         method: "POST",
         mode: "cors",
         headers: { "Content-Type": "application/json" },
@@ -54,7 +55,7 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
       if (res.ok) {
         const data = await res.json();
         const leadId = data?.lead_id;
-        window.location.href = `https://estetica-crm.vercel.app/agendar${leadId ? `?lead_id=${leadId}` : ""}`;
+        window.location.href = `${config.urls.redirectAgendar}${leadId ? `?lead_id=${leadId}` : ""}`;
         return;
       }
       console.error("[LeadForm] webhook respondio con status:", res.status, res.statusText);
@@ -115,10 +116,10 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
         {!success ? (
           <form onSubmit={handleSubmit} noValidate>
             <h3 style={{ fontFamily: "var(--font-serif)", fontWeight: 500, color: "var(--white)", fontSize: 30, lineHeight: 1.1, marginBottom: 10, paddingRight: 20 }}>
-              Reserva tu hora
+              {config.leadForm.modalTitulo}
             </h3>
             <p style={{ color: "var(--txt-2)", fontSize: 14, marginBottom: 28, fontWeight: 300 }}>
-              Déjanos tus datos y te confirmamos disponibilidad.
+              {config.leadForm.modalSubtitulo}
             </p>
 
             <Field label="Nombre completo">
@@ -145,7 +146,7 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
               onMouseEnter={(e) => { if (!loading) { const b = e.currentTarget; b.style.background = "var(--white)"; b.style.color = "var(--bg)"; } }}
               onMouseLeave={(e) => { const b = e.currentTarget; b.style.background = "transparent"; b.style.color = "var(--white)"; }}
             >
-              {loading ? "Procesando..." : "Quiero mi hora"}
+              {loading ? "Procesando..." : config.leadForm.botonSubmit}
             </button>
           </form>
         ) : (
@@ -167,7 +168,7 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
               Hemos recibido tu solicitud. Una de nuestras especialistas te contactará muy pronto.
             </p>
             <p style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "var(--dorado)", fontSize: 18, marginTop: 20 }}>
-              Tu piel merece resultados reales.
+              {config.leadForm.mensajeExito}
             </p>
           </div>
         )}

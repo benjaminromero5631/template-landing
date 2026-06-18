@@ -4,6 +4,7 @@ import { useState } from "react";
 import FadeIn from "@/components/FadeIn";
 import Footer from "@/components/sections/Footer";
 import LeadForm from "@/components/LeadForm";
+import { config } from "@/lib/config";
 
 /* ─── Helpers ─── */
 function Badge({ children }: { children: React.ReactNode }) {
@@ -82,7 +83,7 @@ function VslBox() {
         className="font-display text-[17px] text-center mt-2"
         style={{ color: "var(--dorado)", fontStyle: "italic", fontWeight: 300 }}
       >
-        Mira cómo lo lograron nuestras pacientes →
+        {config.hero.vslCaption}
       </p>
     </div>
   );
@@ -125,7 +126,7 @@ function Hero({ onCta }: { onCta: () => void }) {
             color: "var(--white)",
           }}
         >
-          Tu piel merece{" "}
+          {config.hero.tituloLinea1}{" "}
           <span
             style={{
               background:
@@ -134,7 +135,7 @@ function Hero({ onCta }: { onCta: () => void }) {
               WebkitTextFillColor: "transparent",
             }}
           >
-            resultados reales
+            {config.hero.tituloLinea2Destacado}
           </span>
         </h1>
 
@@ -147,15 +148,14 @@ function Hero({ onCta }: { onCta: () => void }) {
             maxWidth: 480,
           }}
         >
-          Sin dolor · sin cirugías · sin tiempo de recuperación
+          {config.hero.subtituloItalica}
         </p>
 
         <p
           className="font-body text-[15px] leading-relaxed max-w-[460px] mx-auto mb-10"
           style={{ color: "var(--txt-2)", fontWeight: 300 }}
         >
-          Tratamientos personalizados con seguimiento real. Sin protocolos
-          genéricos. Sin promesas vacías.
+          {config.hero.parrafo}
         </p>
 
         <VslBox />
@@ -181,7 +181,7 @@ function Hero({ onCta }: { onCta: () => void }) {
               e.currentTarget.style.color = "var(--dorado)";
             }}
           >
-            Agenda tu evaluación gratuita
+            {config.hero.ctaTexto}
           </button>
         </div>
       </FadeIn>
@@ -223,7 +223,7 @@ function TestimoniosHero() {
             className="font-body text-[11px] tracking-[0.28em] uppercase mb-5"
             style={{ color: "var(--esmeralda-claro)" }}
           >
-            NO me creas a mí como especialista
+            {config.testimoniosVideo.badge}
           </p>
 
           <h2
@@ -236,7 +236,7 @@ function TestimoniosHero() {
               color: "var(--white)",
             }}
           >
-            Resultados que hablan{" "}
+            {config.testimoniosVideo.titulo}{" "}
             <span
               style={{
                 background:
@@ -245,7 +245,7 @@ function TestimoniosHero() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              por sí solos
+              {config.testimoniosVideo.tituloDestacado}
             </span>
           </h2>
 
@@ -253,14 +253,13 @@ function TestimoniosHero() {
             className="font-body text-[15px] leading-relaxed mb-14"
             style={{ color: "var(--txt-2)", maxWidth: 480, margin: "0 auto 56px" }}
           >
-            Antes de agendar, mira los resultados reales de quienes ya
-            confiaron en nosotros.
+            {config.testimoniosVideo.subtitulo}
           </p>
         </FadeIn>
 
         {/* Grid de videos */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
-          {["Paciente 1", "Paciente 2", "Paciente 3", "Paciente 4", "Paciente 5", "Paciente 6"].map(
+          {config.testimoniosVideo.nombres.map(
             (nombre, i) => (
               <FadeIn key={i} delay={i * 80}>
                 {/* TODO: insertar testimonio real - nombre, video, cita */}
@@ -383,7 +382,7 @@ function Reconocidos({ onCta }: { onCta: () => void }) {
               color: "var(--white)",
             }}
           >
-            Reconocidos por la Sociedad Chilena de Medicina Estética:{" "}
+            {config.reconocidos.badge}:{" "}
             <span
               style={{
                 background:
@@ -392,7 +391,7 @@ function Reconocidos({ onCta }: { onCta: () => void }) {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              Un Protocolo Validado
+              {config.reconocidos.subtitulo}
             </span>
           </h2>
 
@@ -437,11 +436,7 @@ function Reconocidos({ onCta }: { onCta: () => void }) {
               className="grid grid-cols-3"
               style={{ backgroundColor: "var(--bg-alt)" }}
             >
-              {[
-                { value: "+850", label: "Pacientes tratadas" },
-                { value: "97%", label: "Tasa de satisfacción" },
-                { value: "8", label: "Años de trayectoria" },
-              ].map((s, i) => (
+              {config.reconocidos.stats.map((s, i) => (
                 <div
                   key={i}
                   className="flex flex-col items-center py-8 gap-2"
@@ -459,7 +454,7 @@ function Reconocidos({ onCta }: { onCta: () => void }) {
                       fontWeight: 400,
                     }}
                   >
-                    {s.value}
+                    {s.valor}
                   </p>
                   <p
                     className="font-body text-[11px] tracking-[0.12em] uppercase"
@@ -494,7 +489,7 @@ function Reconocidos({ onCta }: { onCta: () => void }) {
                 e.currentTarget.style.color = "var(--dorado)";
               }}
             >
-              Agenda tu evaluación gratuita
+              {config.reconocidos.ctaTexto}
             </button>
           </div>
         </FadeIn>
@@ -505,21 +500,6 @@ function Reconocidos({ onCta }: { onCta: () => void }) {
 
 
 /* ─── El problema ─── */
-const problemas = [
-  {
-    titulo: "Protocolos genéricos",
-    desc: "El mismo tratamiento para todas, sin considerar tu tipo de piel ni tus necesidades específicas.",
-  },
-  {
-    titulo: "Resultados inconsistentes",
-    desc: "Cada sesión se siente distinta. No hay forma de saber si realmente estás progresando.",
-  },
-  {
-    titulo: "Sin seguimiento real",
-    desc: "Te dejan sola después de la sesión, sin acompañamiento ni revisión de cómo evoluciona tu piel.",
-  },
-];
-
 function ElProblema() {
   return (
     <section
@@ -532,7 +512,7 @@ function ElProblema() {
     >
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
         <FadeIn>
-          <Badge>El problema..</Badge>
+          <Badge>{config.problema.badge}</Badge>
 
           <h2
             className="max-w-[620px] mx-auto mb-5"
@@ -544,7 +524,7 @@ function ElProblema() {
               color: "var(--white)",
             }}
           >
-            ¿Cansada de probar tratamientos que no muestran{" "}
+            {config.problema.tituloLinea1}{" "}
             <span
               style={{
                 background:
@@ -553,7 +533,7 @@ function ElProblema() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              resultados reales?
+              {config.problema.tituloDestacado}
             </span>
           </h2>
 
@@ -561,13 +541,12 @@ function ElProblema() {
             className="font-body text-[15px] leading-relaxed mb-14"
             style={{ color: "var(--txt-2)", maxWidth: 480, margin: "0 auto 56px" }}
           >
-            Has invertido tiempo y dinero en tratamientos que prometen mucho
-            pero entregan poco, dejándote con la misma sensación de siempre.
+            {config.problema.subtitulo}
           </p>
         </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
-          {problemas.map((p, i) => (
+          {config.problema.cards.map((p, i) => (
             <FadeIn key={i} delay={i * 110}>
               <div
                 style={{
@@ -589,7 +568,7 @@ function ElProblema() {
                   className="font-body text-[13px] leading-relaxed"
                   style={{ color: "var(--txt-2)" }}
                 >
-                  {p.desc}
+                  {p.descripcion}
                 </p>
               </div>
             </FadeIn>
@@ -614,7 +593,7 @@ function LaSolucion() {
       <div className="max-w-5xl mx-auto">
         <FadeIn>
           <div className="flex justify-center mb-12">
-            <Badge>La solución..</Badge>
+            <Badge>{config.solucion.badge}</Badge>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -637,7 +616,7 @@ function LaSolucion() {
                   alignItems: "center",
                 }}
               >
-                {["Resumen", "Evaluaciones", "Progreso"].map((item, i) => (
+                {config.solucion.panelMock.sidebarItems.map((item, i) => (
                   <span
                     key={i}
                     className="font-body text-[12px] tracking-[0.1em]"
@@ -685,10 +664,7 @@ function LaSolucion() {
 
                 {/* Mini cards */}
                 <div className="grid grid-cols-2 gap-3 mb-5">
-                  {[
-                    { label: "Hidratación", value: "+34%" },
-                    { label: "Firmeza", value: "+28%" },
-                  ].map((c, i) => (
+                  {config.solucion.panelMock.miniCards.map((c, i) => (
                     <div
                       key={i}
                       style={{
@@ -740,7 +716,7 @@ function LaSolucion() {
                       className="font-body text-[13px]"
                       style={{ color: "var(--white)" }}
                     >
-                      15 de julio, 2025
+                      {config.solucion.panelMock.proximaEvaluacion}
                     </p>
                   </div>
                   <span
@@ -769,7 +745,7 @@ function LaSolucion() {
                   color: "var(--white)",
                 }}
               >
-                Un protocolo personalizado que se adapta a{" "}
+                {config.solucion.titulo}{" "}
                 <span
                   style={{
                     background:
@@ -778,7 +754,7 @@ function LaSolucion() {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  tu piel
+                  {config.solucion.tituloDestacado}
                 </span>
               </h2>
 
@@ -786,16 +762,11 @@ function LaSolucion() {
                 className="font-body text-[15px] leading-relaxed"
                 style={{ color: "var(--txt-2)" }}
               >
-                Olvídate de los tratamientos genéricos. Cada sesión se ajusta
-                según cómo está evolucionando tu piel, con seguimiento real de
-                tus resultados.
+                {config.solucion.parrafo}
               </p>
 
               <div className="flex flex-col gap-4">
-                {[
-                  "Evaluación profesional antes de cada sesión",
-                  "Seguimiento fotográfico de tus resultados",
-                ].map((item, i) => (
+                {config.solucion.checks.map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <span
                       style={{
@@ -847,7 +818,7 @@ function ClientesGaleria() {
             className="font-display text-[36px] md:text-[44px] leading-tight text-center mb-14"
             style={{ fontWeight: 400 }}
           >
-            +Clientes Clínica Estética
+            +Clientes {config.clinica.nombre}
           </h2>
         </FadeIn>
 

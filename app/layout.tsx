@@ -26,7 +26,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "Clínica Estética Santiago",
-  description: "Tratamientos estéticos personalizados con seguimiento real. Agenda tu evaluación gratuita.",
+  description: "Tratamientos estéticos personalizados con seguimiento real. Reserva tu hora.",
 };
 
 export default function RootLayout({
