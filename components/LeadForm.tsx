@@ -115,10 +115,10 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
         {!success ? (
           <form onSubmit={handleSubmit} noValidate>
             <h3 style={{ fontFamily: "var(--font-serif)", fontWeight: 500, color: "var(--white)", fontSize: 30, lineHeight: 1.1, marginBottom: 10, paddingRight: 20 }}>
-              Agenda tu evaluación gratuita
+              Reserva tu hora
             </h3>
             <p style={{ color: "var(--txt-2)", fontSize: 14, marginBottom: 28, fontWeight: 300 }}>
-              Sin costo · Sin compromiso · Solo 2 minutos.
+              Déjanos tus datos y te confirmamos disponibilidad.
             </p>
 
             <Field label="Nombre completo">
