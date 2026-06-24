@@ -38,6 +38,7 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
     if (!form.checkValidity()) { form.reportValidity(); return; }
     const name = (form.elements.namedItem("name") as HTMLInputElement).value.trim();
     const phone = (form.elements.namedItem("phone") as HTMLInputElement).value.trim();
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value.trim() || null;
     setFirstName(name.split(" ")[0] || "gracias");
     setLoading(true);
     const fallback = () => {
@@ -50,7 +51,7 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
         method: "POST",
         mode: "cors",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nombre: name, telefono: phone }),
+        body: JSON.stringify({ nombre: name, telefono: phone, email }),
       });
       if (res.ok) {
         const data = await res.json();
@@ -127,6 +128,9 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
             </Field>
             <Field label="Teléfono">
               <input type="tel" name="phone" placeholder="+56 9 ____ ____" required />
+            </Field>
+            <Field label="Email (opcional)">
+              <input type="email" name="email" placeholder="tu@correo.com" />
             </Field>
 
             <button
