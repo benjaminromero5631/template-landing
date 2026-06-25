@@ -1,4 +1,4 @@
-export const config = {
+const defaultConfig = {
   clinica: {
     nombre: "Clínica Estética",
     ciudad: "Santiago",
@@ -117,3 +117,9 @@ export const config = {
     copyright: "Clínica Estética · Santiago",
   },
 };
+
+const config = process.env.NEXT_PUBLIC_CLINIC_CONFIG
+  ? ({ ...defaultConfig, ...JSON.parse(process.env.NEXT_PUBLIC_CLINIC_CONFIG) } as typeof defaultConfig)
+  : defaultConfig;
+
+export { config };
