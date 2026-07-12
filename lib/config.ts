@@ -3,6 +3,7 @@ const defaultConfig = {
     nombre: "Clínica Estética",
     ciudad: "Santiago",
     tratamiento: "Morpheus8",
+    logoUrl: "/logo.png",
   },
   hero: {
     tituloLinea1: "Tu piel merece",

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import FadeIn from "@/components/FadeIn";
 import Footer from "@/components/sections/Footer";
+import Header from "@/components/Header";
 import LeadForm from "@/components/LeadForm";
 import { config } from "@/lib/config";
 
@@ -868,6 +869,7 @@ export default function Page() {
 
   return (
     <>
+      <Header />
       <Hero onCta={() => setFormOpen(true)} />
       <TestimoniosHero />
       <Reconocidos onCta={() => setFormOpen(true)} />
