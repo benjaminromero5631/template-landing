@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
+import { config } from "@/lib/config";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,8 +26,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Clínica Estética Santiago",
-  description: "Tratamientos estéticos personalizados con seguimiento real. Reserva tu hora.",
+  title: `${config.clinica.nombre} ${config.clinica.ciudad}`,
+  description: config.hero.parrafo,
 };
 
 export default function RootLayout({
