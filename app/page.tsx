@@ -42,14 +42,47 @@ function CtaButton({ children, onClick }: { children: React.ReactNode; onClick: 
   );
 }
 
+function Glow() {
+  return <div className="bg-glow" aria-hidden />;
+}
+
+function GlowSoft() {
+  return <div className="bg-glow-soft" aria-hidden />;
+}
+
+function FadeBottom({ to }: { to: string }) {
+  return (
+    <div
+      aria-hidden
+      style={{
+        position: "absolute",
+        left: 0,
+        right: 0,
+        bottom: 0,
+        height: 140,
+        background: `linear-gradient(to bottom, transparent, ${to})`,
+        pointerEvents: "none",
+        zIndex: 0,
+      }}
+    />
+  );
+}
+
 /* ─── Hero ─── */
 function Hero({ onCta }: { onCta: () => void }) {
   return (
     <section
       className="w-full flex flex-col items-center text-center px-4"
-      style={{ backgroundColor: "var(--bg)", padding: "96px 16px 80px" }}
+      style={{
+        backgroundColor: "var(--bg)",
+        padding: "96px 16px 80px",
+        position: "relative",
+        overflow: "hidden",
+      }}
     >
-      <FadeIn>
+      <Glow />
+      <FadeBottom to="var(--bg-alt)" />
+      <FadeIn style={{ position: "relative", zIndex: 1 }}>
         <Badge>{config.hero.badge}</Badge>
 
         <h1
@@ -140,9 +173,13 @@ function Beneficios() {
         backgroundColor: "var(--bg-alt)",
         borderTop: "1px solid var(--hairline)",
         padding: "80px 16px",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      <div className="max-w-2xl mx-auto text-center">
+      <GlowSoft />
+      <FadeBottom to="var(--bg)" />
+      <div className="max-w-2xl mx-auto text-center" style={{ position: "relative", zIndex: 1 }}>
         <FadeIn>
           <h2
             className="mb-10"
@@ -194,9 +231,13 @@ function Testimonios() {
         backgroundColor: "var(--bg)",
         borderTop: "1px solid var(--hairline)",
         padding: "96px 16px",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      <div className="max-w-5xl mx-auto">
+      <GlowSoft />
+      <FadeBottom to="var(--bg-alt)" />
+      <div className="max-w-5xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
         <FadeIn>
           <h2
             className="text-center mb-14"
@@ -268,9 +309,13 @@ function CtaIntermedio({ onCta }: { onCta: () => void }) {
         backgroundColor: "var(--bg-alt)",
         borderTop: "1px solid var(--hairline)",
         padding: "96px 16px",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      <div className="max-w-2xl mx-auto text-center">
+      <Glow />
+      <FadeBottom to="var(--bg)" />
+      <div className="max-w-2xl mx-auto text-center" style={{ position: "relative", zIndex: 1 }}>
         <FadeIn>
           <div className="flex flex-col gap-5 mb-10">
             {config.ctaIntermedio.parrafos.map((p, i) => (
@@ -299,9 +344,13 @@ function CasoDestacado() {
         backgroundColor: "var(--bg)",
         borderTop: "1px solid var(--hairline)",
         padding: "96px 16px",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      <div className="max-w-2xl mx-auto flex flex-col items-center text-center">
+      <GlowSoft />
+      <FadeBottom to="var(--bg-alt)" />
+      <div className="max-w-2xl mx-auto flex flex-col items-center text-center" style={{ position: "relative", zIndex: 1 }}>
         <FadeIn>
           <Badge>{config.casoDestacado.badgeStats}</Badge>
 
@@ -343,9 +392,13 @@ function BioProfesional({ onCta }: { onCta: () => void }) {
         backgroundColor: "var(--bg-alt)",
         borderTop: "1px solid var(--hairline)",
         padding: "96px 16px",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      <div className="max-w-2xl mx-auto flex flex-col items-center text-center">
+      <Glow />
+      <FadeBottom to="var(--bg)" />
+      <div className="max-w-2xl mx-auto flex flex-col items-center text-center" style={{ position: "relative", zIndex: 1 }}>
         <FadeIn>
           <div
             style={{
