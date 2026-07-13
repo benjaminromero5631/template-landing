@@ -16,7 +16,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: `${config.clinica.nombre} ${config.clinica.ciudad}`,
-  description: config.hero.subtitulo,
+  description: config.servicios.otomodelacion.hero.subtitulo,
 };
 
 export default function RootLayout({

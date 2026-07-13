@@ -1,15 +1,24 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { config } from "@/lib/config";
 
 interface LeadFormProps {
   open: boolean;
   onClose: () => void;
-  ctaText?: string;
+  servicio: "otomodelacion" | "metodo_regenerativo";
+  leadForm: {
+    modalTitulo: string;
+    modalSubtitulo: string;
+    botonSubmit: string;
+    mensajeExito: string;
+  };
+  urls: {
+    webhookN8n: string;
+    redirectAgendar: string;
+  };
 }
 
-export default function LeadForm({ open, onClose }: LeadFormProps) {
+export default function LeadForm({ open, onClose, servicio, leadForm, urls }: LeadFormProps) {
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [firstName, setFirstName] = useState("");
@@ -44,19 +53,19 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
     const fallback = () => {
       setLoading(false);
       setSuccess(true);
-      setTimeout(() => { window.location.href = config.urls.redirectAgendar; }, 1000);
+      setTimeout(() => { window.location.href = urls.redirectAgendar; }, 1000);
     };
     try {
-      const res = await fetch(config.urls.webhookN8n, {
+      const res = await fetch(urls.webhookN8n, {
         method: "POST",
         mode: "cors",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nombre: name, telefono: phone, email }),
+        body: JSON.stringify({ nombre: name, telefono: phone, email, servicio }),
       });
       if (res.ok) {
         const data = await res.json();
         const leadId = data?.lead_id;
-        window.location.href = `${config.urls.redirectAgendar}${leadId ? `?lead_id=${leadId}` : ""}`;
+        window.location.href = `${urls.redirectAgendar}${leadId ? `?lead_id=${leadId}` : ""}`;
         return;
       }
       console.error("[LeadForm] webhook respondio con status:", res.status, res.statusText);
@@ -116,11 +125,12 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
 
         {!success ? (
           <form onSubmit={handleSubmit} noValidate>
+            <input type="hidden" name="servicio" value={servicio} />
             <h3 style={{ fontFamily: "var(--font-serif)", fontWeight: 500, color: "var(--white)", fontSize: 30, lineHeight: 1.1, marginBottom: 10, paddingRight: 20 }}>
-              {config.leadForm.modalTitulo}
+              {leadForm.modalTitulo}
             </h3>
             <p style={{ color: "var(--txt-2)", fontSize: 14, marginBottom: 28, fontWeight: 300 }}>
-              {config.leadForm.modalSubtitulo}
+              {leadForm.modalSubtitulo}
             </p>
 
             <Field label="Nombre completo">
@@ -150,7 +160,7 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
               onMouseEnter={(e) => { if (!loading) { const b = e.currentTarget; b.style.background = "var(--white)"; b.style.color = "var(--bg)"; } }}
               onMouseLeave={(e) => { const b = e.currentTarget; b.style.background = "transparent"; b.style.color = "var(--white)"; }}
             >
-              {loading ? "Procesando..." : config.leadForm.botonSubmit}
+              {loading ? "Procesando..." : leadForm.botonSubmit}
             </button>
           </form>
         ) : (
@@ -172,7 +182,7 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
               Hemos recibido tu solicitud. Una de nuestras especialistas te contactará muy pronto.
             </p>
             <p style={{ fontFamily: "var(--font-sans)", fontWeight: 600, color: "var(--accent)", fontSize: 18, marginTop: 20 }}>
-              {config.leadForm.mensajeExito}
+              {leadForm.mensajeExito}
             </p>
           </div>
         )}

@@ -1,486 +1,127 @@
 "use client";
 
-import { useState } from "react";
-import FadeIn from "@/components/FadeIn";
-import Footer from "@/components/sections/Footer";
+import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
-import LeadForm from "@/components/LeadForm";
+import FadeIn from "@/components/FadeIn";
 import { config } from "@/lib/config";
 
-/* ─── Helpers ─── */
-function Badge({ children }: { children: React.ReactNode }) {
-  return (
-    <span
-      className="inline-block font-body text-[12px] tracking-[0.14em] uppercase mb-6 px-5 py-2"
-      style={{
-        color: "var(--accent)",
-        background: "rgba(196,151,74,0.08)",
-        border: "1px solid rgba(196,151,74,0.4)",
-        borderRadius: 999,
-      }}
-    >
-      {children}
-    </span>
-  );
-}
+function ServiceCard({
+  titulo,
+  descripcion,
+  imagenUrl,
+  ctaTexto,
+  href,
+}: {
+  titulo: string;
+  descripcion: string;
+  imagenUrl: string;
+  ctaTexto: string;
+  href: string;
+}) {
+  const router = useRouter();
 
-function CtaButton({ children, onClick }: { children: React.ReactNode; onClick: () => void }) {
   return (
     <button
-      onClick={onClick}
-      className="font-body text-[15px] font-semibold px-9 py-4"
+      onClick={() => router.push(href)}
+      className="w-full text-left flex flex-col"
       style={{
-        background: "linear-gradient(135deg, #000000 0%, #C4974A 100%)",
-        color: "#FFFFFF",
-        border: "none",
-        borderRadius: 11,
+        backgroundColor: "var(--bg-alt)",
+        border: "1px solid var(--hairline)",
+        borderRadius: 12,
+        overflow: "hidden",
         cursor: "pointer",
       }}
     >
-      {children}
+      <div
+        style={{
+          width: "100%",
+          aspectRatio: "4/3",
+          backgroundColor: "#1A1A1A",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: 16,
+          textAlign: "center",
+        }}
+      >
+        <p className="font-body text-[13px]" style={{ color: "var(--txt-2)" }}>
+          {imagenUrl}
+        </p>
+      </div>
+      <div style={{ padding: "28px 24px" }}>
+        <h2
+          style={{
+            fontFamily: "var(--font-sans)",
+            fontWeight: 700,
+            fontSize: 22,
+            color: "var(--white)",
+            marginBottom: 8,
+          }}
+        >
+          {titulo}
+        </h2>
+        <p
+          className="font-body text-[14px] leading-relaxed mb-6"
+          style={{ color: "var(--txt-2)" }}
+        >
+          {descripcion}
+        </p>
+        <span
+          className="inline-block font-body text-[13px] font-semibold px-7 py-3"
+          style={{
+            background: "linear-gradient(135deg, #000000 0%, #C4974A 100%)",
+            color: "#FFFFFF",
+            borderRadius: 9,
+          }}
+        >
+          {ctaTexto}
+        </span>
+      </div>
     </button>
   );
 }
 
-function Glow() {
-  return <div className="bg-glow" aria-hidden />;
-}
-
-function GlowSoft() {
-  return <div className="bg-glow-soft" aria-hidden />;
-}
-
-function FadeBottom({ to }: { to: string }) {
+export default function Page() {
   return (
-    <div
-      aria-hidden
-      style={{
-        position: "absolute",
-        left: 0,
-        right: 0,
-        bottom: 0,
-        height: 140,
-        background: `linear-gradient(to bottom, transparent, ${to})`,
-        pointerEvents: "none",
-        zIndex: 0,
-      }}
-    />
-  );
-}
-
-/* ─── Hero ─── */
-function Hero({ onCta }: { onCta: () => void }) {
-  return (
-    <section
-      className="w-full flex flex-col items-center text-center px-4"
-      style={{
-        backgroundColor: "var(--bg)",
-        padding: "96px 16px 80px",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      <Glow />
-      <FadeBottom to="var(--bg-alt)" />
-      <FadeIn style={{ position: "relative", zIndex: 1 }}>
-        <Badge>{config.hero.badge}</Badge>
-
-        <h1
-          className="max-w-[720px] mx-auto mb-5"
-          style={{
-            fontFamily: "var(--font-sans)",
-            fontWeight: 700,
-            fontSize: "clamp(32px, 6vw, 48px)",
-            lineHeight: "1.25",
-            color: "var(--white)",
-          }}
-        >
-          {config.hero.tituloLinea1}{" "}
-          <span style={{ color: "var(--accent)" }}>
-            {config.hero.tituloLinea2Destacado}
-          </span>
-        </h1>
-
-        <p
-          className="font-body text-[16px] leading-relaxed max-w-[480px] mx-auto mb-10"
-          style={{ color: "var(--txt-2)" }}
-        >
-          {config.hero.subtitulo}
-        </p>
-
-        {/* Espacio para video/VSL */}
-        <div style={{ width: "100%", maxWidth: 680, margin: "0 auto" }}>
-          <div
-            style={{
-              position: "relative",
-              width: "100%",
-              paddingTop: "56.25%",
-              border: "1px solid var(--hairline)",
-              borderRadius: 12,
-              background: "var(--bg-alt)",
-              overflow: "hidden",
-            }}
-          >
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div
-                style={{
-                  width: 72,
-                  height: 72,
-                  borderRadius: "50%",
-                  background: "rgba(196,151,74,0.12)",
-                  border: "2px solid var(--accent)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="var(--accent)">
-                  <polygon points="6,4 20,12 6,20" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <p
-            className="font-body text-[13px] mt-4"
-            style={{ color: "var(--txt-2)" }}
-          >
-            {config.hero.vslCaption}
-          </p>
-        </div>
-
-        <div style={{ marginTop: 40 }}>
-          <CtaButton onClick={onCta}>{config.hero.ctaTexto}</CtaButton>
-        </div>
-      </FadeIn>
-    </section>
-  );
-}
-
-/* ─── Beneficios / Checklist ─── */
-function Beneficios() {
-  return (
-    <section
-      style={{
-        width: "100%",
-        backgroundColor: "var(--bg-alt)",
-        borderTop: "1px solid var(--hairline)",
-        padding: "80px 16px",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      <GlowSoft />
-      <FadeBottom to="var(--bg)" />
-      <div className="max-w-2xl mx-auto text-center" style={{ position: "relative", zIndex: 1 }}>
+    <>
+      <Header />
+      <main
+        className="w-full flex flex-col items-center px-4"
+        style={{ backgroundColor: "var(--bg)", padding: "72px 16px 96px" }}
+      >
         <FadeIn>
-          <h2
-            className="mb-10"
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontWeight: 700,
-              fontSize: "clamp(26px, 5vw, 36px)",
-              lineHeight: 1.2,
-              color: "var(--white)",
-            }}
-          >
-            {config.beneficios.titulo}
-          </h2>
-
-          <div className="flex flex-col gap-5 text-left max-w-[440px] mx-auto">
-            {config.beneficios.checks.map((item, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <span
-                  style={{
-                    color: "var(--accent)",
-                    fontSize: 18,
-                    lineHeight: 1.5,
-                    flexShrink: 0,
-                  }}
-                >
-                  ✓
-                </span>
-                <p
-                  className="font-body text-[15px] leading-relaxed"
-                  style={{ color: "var(--white)" }}
-                >
-                  {item}
-                </p>
-              </div>
-            ))}
-          </div>
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
-
-/* ─── Testimonios ─── */
-function Testimonios() {
-  return (
-    <section
-      style={{
-        width: "100%",
-        backgroundColor: "var(--bg)",
-        borderTop: "1px solid var(--hairline)",
-        padding: "96px 16px",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      <GlowSoft />
-      <FadeBottom to="var(--bg-alt)" />
-      <div className="max-w-5xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
-        <FadeIn>
-          <h2
-            className="text-center mb-14"
+          <h1
+            className="text-center max-w-[560px] mx-auto mb-12"
             style={{
               fontFamily: "var(--font-sans)",
               fontWeight: 700,
               fontSize: "clamp(28px, 5vw, 40px)",
-              lineHeight: 1.2,
+              lineHeight: 1.25,
               color: "var(--white)",
             }}
           >
-            {config.testimonios.titulo}
-          </h2>
+            {config.clinica.nombre}
+          </h1>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {config.testimonios.cards.map((card, i) => (
-            <FadeIn key={i} delay={i * 90}>
-              <div
-                style={{
-                  backgroundColor: "var(--bg-alt)",
-                  border: "1px solid var(--hairline)",
-                  borderRadius: 12,
-                  overflow: "hidden",
-                }}
-              >
-                <div
-                  style={{
-                    width: "100%",
-                    aspectRatio: "4/3",
-                    backgroundColor: "#1A1A1A",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: 16,
-                    textAlign: "center",
-                  }}
-                >
-                  <p className="font-body text-[13px]" style={{ color: "var(--txt-2)" }}>
-                    {card.media}
-                  </p>
-                </div>
-                <div style={{ padding: "24px 22px" }}>
-                  <p
-                    className="font-body text-[14px] leading-relaxed mb-4"
-                    style={{ color: "var(--white)" }}
-                  >
-                    {card.texto}
-                  </p>
-                  <p className="font-body text-[13px] font-semibold" style={{ color: "var(--accent)" }}>
-                    {card.nombre}
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-          ))}
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full"
+          style={{ maxWidth: 900 }}
+        >
+          <FadeIn>
+            <ServiceCard
+              {...config.entrada.tarjetaOtomodelacion}
+              href="/otomodelacion"
+            />
+          </FadeIn>
+          <FadeIn delay={90}>
+            <ServiceCard
+              {...config.entrada.tarjetaMetodoRegenerativo}
+              href="/metodo-regenerativo"
+            />
+          </FadeIn>
         </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─── CTA intermedio + copy persuasivo ─── */
-function CtaIntermedio({ onCta }: { onCta: () => void }) {
-  return (
-    <section
-      style={{
-        width: "100%",
-        backgroundColor: "var(--bg-alt)",
-        borderTop: "1px solid var(--hairline)",
-        padding: "96px 16px",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      <Glow />
-      <FadeBottom to="var(--bg)" />
-      <div className="max-w-2xl mx-auto text-center" style={{ position: "relative", zIndex: 1 }}>
-        <FadeIn>
-          <div className="flex flex-col gap-5 mb-10">
-            {config.ctaIntermedio.parrafos.map((p, i) => (
-              <p
-                key={i}
-                className="font-body text-[16px] leading-relaxed"
-                style={{ color: i === 0 ? "var(--white)" : "var(--txt-2)" }}
-              >
-                {p}
-              </p>
-            ))}
-          </div>
-          <CtaButton onClick={onCta}>{config.ctaIntermedio.ctaTexto}</CtaButton>
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
-
-/* ─── Caso destacado / badges de confianza ─── */
-function CasoDestacado() {
-  return (
-    <section
-      style={{
-        width: "100%",
-        backgroundColor: "var(--bg)",
-        borderTop: "1px solid var(--hairline)",
-        padding: "96px 16px",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      <GlowSoft />
-      <FadeBottom to="var(--bg-alt)" />
-      <div className="max-w-2xl mx-auto flex flex-col items-center text-center" style={{ position: "relative", zIndex: 1 }}>
-        <FadeIn>
-          <Badge>{config.casoDestacado.badgeStats}</Badge>
-
-          <div
-            style={{
-              width: "100%",
-              backgroundColor: "var(--bg-alt)",
-              border: "1px solid var(--hairline)",
-              borderRadius: 12,
-              padding: "40px 32px",
-              marginTop: 16,
-            }}
-          >
-            <p
-              className="font-body text-[11px] tracking-[0.14em] uppercase mb-4"
-              style={{ color: "var(--txt-2)" }}
-            >
-              Caso destacado
-            </p>
-            <p
-              className="font-body text-[18px] font-semibold"
-              style={{ color: "var(--white)" }}
-            >
-              {config.casoDestacado.nombreResultado}
-            </p>
-          </div>
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
-
-/* ─── Bio de la profesional ─── */
-function BioProfesional({ onCta }: { onCta: () => void }) {
-  return (
-    <section
-      style={{
-        width: "100%",
-        backgroundColor: "var(--bg-alt)",
-        borderTop: "1px solid var(--hairline)",
-        padding: "96px 16px",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      <Glow />
-      <FadeBottom to="var(--bg)" />
-      <div className="max-w-2xl mx-auto flex flex-col items-center text-center" style={{ position: "relative", zIndex: 1 }}>
-        <FadeIn>
-          <div
-            style={{
-              width: 120,
-              height: 120,
-              borderRadius: "50%",
-              backgroundColor: "#1A1A1A",
-              border: "1px solid var(--hairline)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              margin: "0 auto 24px",
-              padding: 12,
-              textAlign: "center",
-            }}
-          >
-            <p className="font-body text-[11px]" style={{ color: "var(--txt-2)" }}>
-              {config.bioProfesional.fotoUrl}
-            </p>
-          </div>
-
-          <p
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontWeight: 700,
-              fontSize: 24,
-              color: "var(--white)",
-              marginBottom: 4,
-            }}
-          >
-            {config.bioProfesional.nombre}
-          </p>
-          <p
-            className="font-body text-[14px] mb-10"
-            style={{ color: "var(--accent)" }}
-          >
-            {config.bioProfesional.rol}
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mb-10">
-            {config.bioProfesional.stats.map((s, i) => (
-              <div key={i} className="flex flex-col items-center gap-1">
-                <p style={{ fontFamily: "var(--font-sans)", fontWeight: 700, fontSize: 26, color: "var(--accent)" }}>
-                  {s.valor}
-                </p>
-                <p className="font-body text-[12px]" style={{ color: "var(--txt-2)" }}>
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex flex-col gap-4 text-left mb-10">
-            {config.bioProfesional.historia.map((p, i) => (
-              <p key={i} className="font-body text-[15px] leading-relaxed" style={{ color: "var(--txt-2)" }}>
-                {p}
-              </p>
-            ))}
-          </div>
-
-          <CtaButton onClick={onCta}>{config.bioProfesional.ctaTexto}</CtaButton>
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
-
-/* ─── Page ─── */
-export default function Page() {
-  const [formOpen, setFormOpen] = useState(false);
-
-  return (
-    <>
-      <Header />
-      <Hero onCta={() => setFormOpen(true)} />
-      <Beneficios />
-      <Testimonios />
-      <CtaIntermedio onCta={() => setFormOpen(true)} />
-      <CasoDestacado />
-      <BioProfesional onCta={() => setFormOpen(true)} />
-      <Footer />
-      <LeadForm open={formOpen} onClose={() => setFormOpen(false)} />
+      </main>
     </>
   );
 }
