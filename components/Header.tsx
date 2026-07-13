@@ -11,7 +11,7 @@ export default function Header() {
     <header
       className="sticky top-0 z-50 w-full flex items-center justify-center px-4 py-3"
       style={{
-        backgroundColor: "rgba(5,11,8,0.85)",
+        backgroundColor: "rgba(10,10,10,0.85)",
         backdropFilter: "blur(8px)",
         WebkitBackdropFilter: "blur(8px)",
         borderBottom: "1px solid var(--hairline)",
@@ -31,7 +31,7 @@ export default function Header() {
         ) : (
           <span
             className="font-display text-[18px]"
-            style={{ color: "var(--esmeralda-claro)", fontWeight: 400 }}
+            style={{ color: "var(--accent)", fontWeight: 700 }}
           >
             {config.clinica.nombre}
           </span>

@@ -6,102 +6,70 @@ const defaultConfig = {
     logoUrl: "/logo.png",
   },
   hero: {
-    tituloLinea1: "Tu piel merece",
-    tituloLinea2Destacado: "resultados reales",
-    subtituloItalica: "Sin dolor · sin cirugías · sin tiempo de recuperación",
-    parrafo:
+    badge: "Solo para pacientes que buscan resultados reales", // texto de la píldora superior
+    tituloLinea1: "Tu piel merece", // primera línea del headline
+    tituloLinea2Destacado: "resultados reales", // segunda línea, en color de acento
+    subtitulo:
       "Tratamientos personalizados con seguimiento real. Sin protocolos genéricos. Sin promesas vacías.",
     ctaTexto: "Reserva tu hora",
-    vslCaption: "Mira cómo lo lograron nuestras pacientes →",
+    vslCaption: "Mira cómo lo lograron nuestras pacientes →", // texto bajo el espacio de video/VSL
   },
-  testimoniosVideo: {
-    badge: "NO me creas a mí como especialista",
-    titulo: "Resultados que hablan",
-    tituloDestacado: "por sí solos",
-    subtitulo:
-      "Antes de agendar, mira los resultados reales de quienes ya confiaron en nosotros.",
-    nombres: [
-      "Paciente 1",
-      "Paciente 2",
-      "Paciente 3",
-      "Paciente 4",
-      "Paciente 5",
-      "Paciente 6",
+  beneficios: {
+    titulo: "Tu primera consulta incluye", // título de la sección de checklist
+    checks: [
+      "Evaluación profesional de tu piel y objetivos",
+      "Plan de tratamiento personalizado, sin costo",
+      "Resolución de dudas con una especialista",
     ],
   },
-  reconocidos: {
-    badge: "Reconocidos por la Sociedad Chilena de Medicina Estética",
-    subtitulo: "Un Protocolo Validado",
-    stats: [
-      { valor: "+850", label: "Pacientes tratadas" },
-      { valor: "97%", label: "Tasa de satisfacción" },
-      { valor: "8", label: "Años de trayectoria" },
-    ],
-    ctaTexto: "Reserva tu hora",
-  },
-  problema: {
-    badge: "El problema..",
-    tituloLinea1: "¿Cansada de probar tratamientos que no muestran",
-    tituloDestacado: "resultados reales?",
-    subtitulo:
-      "Has invertido tiempo y dinero en tratamientos que prometen mucho pero entregan poco, dejándote con la misma sensación de siempre.",
+  testimonios: {
+    titulo: "Lo que dicen nuestras pacientes",
     cards: [
       {
-        titulo: "Protocolos genéricos",
-        descripcion:
-          "El mismo tratamiento para todas, sin considerar tu tipo de piel ni tus necesidades específicas.",
+        media: "[Antes/Después o video de la paciente]", // placeholder visual
+        nombre: "[Nombre de la paciente]",
+        texto: "[Testimonio — agregar reseña real de Google]",
       },
       {
-        titulo: "Resultados inconsistentes",
-        descripcion:
-          "Cada sesión se siente distinta. No hay forma de saber si realmente estás progresando.",
+        media: "[Antes/Después o video de la paciente]",
+        nombre: "[Nombre de la paciente]",
+        texto: "[Testimonio — agregar reseña real de Google]",
       },
       {
-        titulo: "Sin seguimiento real",
-        descripcion:
-          "Te dejan sola después de la sesión, sin acompañamiento ni revisión de cómo evoluciona tu piel.",
+        media: "[Antes/Después o video de la paciente]",
+        nombre: "[Nombre de la paciente]",
+        texto: "[Testimonio — agregar reseña real de Google]",
       },
     ],
   },
-  solucion: {
-    badge: "La solución..",
-    titulo: "Un protocolo personalizado que se adapta a",
-    tituloDestacado: "tu piel",
-    parrafo:
-      "Olvídate de los tratamientos genéricos. Cada sesión se ajusta según cómo está evolucionando tu piel, con seguimiento real de tus resultados.",
-    checks: [
-      "Evaluación profesional antes de cada sesión",
-      "Seguimiento fotográfico de tus resultados",
+  ctaIntermedio: {
+    ctaTexto: "Reserva tu hora",
+    parrafos: [
+      "Postergar tu tratamiento no te acerca a los resultados que quieres.",
+      "Cada semana que pasa sin un plan claro es una semana más lejos de la piel que buscas. No necesitas otra promesa genérica, necesitas un protocolo pensado para ti.",
+      "Agenda tu consulta y da el primer paso hacia un cambio real.",
     ],
-    panelMock: {
-      sidebarItems: ["Resumen", "Evaluaciones", "Progreso"],
-      miniCards: [
-        { label: "Hidratación", value: "+34%" },
-        { label: "Firmeza", value: "+28%" },
-      ],
-      proximaEvaluacion: "15 de julio, 2025",
-    },
   },
-  howItWorks: {
-    titulo: "¿Cómo es el proceso?",
-    etapas: [
-      {
-        label: "Evaluación inicial",
-        desc: "Analizamos tu piel, tus objetivos y tu historial sin costo ni compromiso.",
-      },
-      {
-        label: "Protocolo personalizado",
-        desc: "Diseñamos el plan exacto para tu tipo de piel y tu meta.",
-      },
-      {
-        label: "Sesión(es) del tratamiento",
-        desc: "Realizamos el tratamiento con equipos de última generación.",
-      },
-      {
-        label: "Seguimiento post-tratamiento",
-        desc: "Te acompañamos después para asegurar resultados visibles y duraderos.",
-      },
+  casoDestacado: {
+    badgeStats: "[+N pacientes atendidas]", // badge de confianza
+    nombreResultado: "[Nombre de paciente] · [Resultado]", // card de caso destacado
+  },
+  bioProfesional: {
+    fotoUrl: "[Foto de la profesional]", // placeholder de imagen circular
+    nombre: "[Nombre]",
+    rol: "[Especialidad/Rol]",
+    stats: [
+      { valor: "[X]", label: "[años de experiencia]" },
+      { valor: "[X]", label: "[pacientes atendidas]" },
+      { valor: "[X]", label: "[certificaciones]" },
+      { valor: "[X]", label: "[tratamientos realizados]" },
     ],
+    historia: [
+      "[Historia y trayectoria de la profesional — completar]",
+      "[Historia y trayectoria de la profesional — completar]",
+      "[Historia y trayectoria de la profesional — completar]",
+    ],
+    ctaTexto: "Reserva tu hora",
   },
   leadForm: {
     modalTitulo: "Reserva tu hora",

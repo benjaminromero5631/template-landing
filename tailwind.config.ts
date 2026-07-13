@@ -10,16 +10,16 @@ const config: Config = {
     extend: {
       colors: {
         bg: "#0A0A0A",
-        "bg-alt": "#0F0F0F",
-        card: "#111116",
-        "input-bg": "#1A1A20",
-        fg: "#F5F0EB",
-        secondary: "#A89880",
+        "bg-alt": "#111111",
+        card: "#141414",
+        "input-bg": "#1A1A1A",
+        fg: "#F5F5F5",
+        secondary: "#888888",
         accent: "var(--accent)",
       },
       fontFamily: {
-        display: ["var(--font-cormorant)", "serif"],
-        body: ["var(--font-dm-sans)", "sans-serif"],
+        display: ["var(--font-geist-sans)", "sans-serif"],
+        body: ["var(--font-geist-sans)", "sans-serif"],
       },
     },
   },

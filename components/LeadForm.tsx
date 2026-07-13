@@ -157,9 +157,9 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
           <div style={{ textAlign: "center", padding: "14px 0 6px", animation: "fadeUp .5s ease both" }}>
             <div style={{
               width: 70, height: 70,
-              border: "2px solid var(--celeste)", borderRadius: "50%",
+              border: "2px solid var(--accent)", borderRadius: "50%",
               display: "flex", alignItems: "center", justifyContent: "center",
-              margin: "8px auto 26px", color: "var(--celeste)",
+              margin: "8px auto 26px", color: "var(--accent)",
             }}>
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M20 6L9 17l-5-5" />
@@ -171,7 +171,7 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
             <p style={{ color: "var(--txt-2)", fontSize: 15, lineHeight: 1.6, fontWeight: 300, maxWidth: 320, margin: "0 auto" }}>
               Hemos recibido tu solicitud. Una de nuestras especialistas te contactará muy pronto.
             </p>
-            <p style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "var(--dorado)", fontSize: 18, marginTop: 20 }}>
+            <p style={{ fontFamily: "var(--font-sans)", fontWeight: 600, color: "var(--accent)", fontSize: 18, marginTop: 20 }}>
               {config.leadForm.mensajeExito}
             </p>
           </div>
@@ -198,8 +198,8 @@ export default function LeadForm({ open, onClose }: LeadFormProps) {
           }
           .lf-field input::placeholder { color: rgba(255,255,255,0.28); }
           .lf-field input:focus, .lf-field select:focus {
-            outline: none; border-color: var(--celeste);
-            box-shadow: 0 0 0 3px rgba(126,200,227,0.14);
+            outline: none; border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(196,151,74,0.14);
           }
           .lf-select { position: relative; }
           .lf-select::after {
