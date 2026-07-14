@@ -8,7 +8,7 @@ const defaultConfig = {
     tarjetaOtomodelacion: {
       titulo: "Otomodelación Definitiva",
       descripcion: "Evento exclusivo en Puerto Montt · Cupos limitados",
-      imagenUrl: "[Imagen del tratamiento Otomodelación]",
+      imagenUrl: "/otomodelacion/caso-destacado.png",
       ctaTexto: "Ver más",
     },
     tarjetaMetodoRegenerativo: {
@@ -20,12 +20,13 @@ const defaultConfig = {
   },
   servicios: {
     otomodelacion: {
+      mostrarBloqueConsulta: false,
       hero: {
-        badge: "Solo para pacientes que buscan resultados reales",
-        tituloLinea1: "Tu piel merece",
-        tituloLinea2Destacado: "resultados reales",
+        badge: "Solo para quienes quieren cambiar la forma de sus orejas — Puerto Montt",
+        tituloLinea1: "El Cambio en Tus Orejas Que Buscas, en 1 Sola Sesión —",
+        tituloLinea2Destacado: "Sin Cirugía",
         subtitulo:
-          "Otomodelación Definitiva en Puerto Montt. Cupos limitados, resultados que se notan desde la primera sesión.",
+          "Resultado visible desde el primer día, sin ningún dolor. Solo en Puerto Montt del 11 al 13 de agosto.",
         ctaTexto: "Reserva tu hora",
         vslCaption: "Mira cómo lo lograron nuestras pacientes →",
       },
@@ -39,50 +40,38 @@ const defaultConfig = {
       },
       testimonios: {
         titulo: "Lo que dicen nuestras pacientes",
-        cards: [
-          {
-            media: "[Antes/Después o video de la paciente]",
-            nombre: "[Nombre de la paciente]",
-            texto: "[Testimonio — agregar reseña real de Google]",
-          },
-          {
-            media: "[Antes/Después o video de la paciente]",
-            nombre: "[Nombre de la paciente]",
-            texto: "[Testimonio — agregar reseña real de Google]",
-          },
-          {
-            media: "[Antes/Después o video de la paciente]",
-            nombre: "[Nombre de la paciente]",
-            texto: "[Testimonio — agregar reseña real de Google]",
-          },
+        imagenes: [
+          "/otomodelacion/testimonio-01.png",
+          "/otomodelacion/testimonio-02.png",
+          "/otomodelacion/testimonio-03.png",
+          "/otomodelacion/testimonio-04.png",
+          "/otomodelacion/testimonio-05.png",
+          "/otomodelacion/testimonio-06.png",
+          "/otomodelacion/testimonio-07.png",
         ],
       },
       ctaIntermedio: {
         ctaTexto: "Reserva tu hora",
         parrafos: [
-          "Postergar tu tratamiento no te acerca a los resultados que quieres.",
-          "Cada semana que pasa sin un plan claro es una semana más lejos de la piel que buscas. No necesitas otra promesa genérica, necesitas un protocolo pensado para ti.",
-          "Agenda tu consulta y da el primer paso hacia un cambio real.",
+          "Estaré en Puerto Montt solo el 11, 12 y 13 de agosto — máximo 20 cupos para todo el viaje. Agenda tu evaluación ahora.",
         ],
       },
       casoDestacado: {
-        badgeStats: "[+N pacientes atendidas]",
-        nombreResultado: "[Nombre de paciente] · [Resultado]",
+        imagenUrl: "/otomodelacion/caso-destacado.png",
+        caption: "+20.000 pacientes atendidos · Pionera en Otomodelación Definitiva",
       },
       bioProfesional: {
-        fotoUrl: "[Foto de la profesional]",
-        nombre: "[Nombre]",
-        rol: "[Especialidad/Rol]",
+        fotoUrl: "/otomodelacion/isabella-perfil.png",
+        nombre: "Isabella Sanquea",
+        rol: "Enfermera especialista en Otomodelación",
         stats: [
-          { valor: "[X]", label: "[años de experiencia]" },
-          { valor: "[X]", label: "[pacientes atendidas]" },
-          { valor: "[X]", label: "[certificaciones]" },
-          { valor: "[X]", label: "[tratamientos realizados]" },
+          { valor: "5", label: "años de experiencia" },
+          { valor: "+20.000", label: "pacientes atendidos" },
         ],
         historia: [
-          "[Historia y trayectoria de la profesional — completar]",
-          "[Historia y trayectoria de la profesional — completar]",
-          "[Historia y trayectoria de la profesional — completar]",
+          "Soy Isabella, enfermera de profesión — trabajé en la urgencia y UPCA del Hospital Regional antes de dedicarme por completo a la estética. Llevo 5 años especializada en Otomodelación, la técnica que ayudé a traer a Chile, y ya son más de 20.000 pacientes.",
+          "Lo que más me apasiona es verlos felices con los resultados — por eso me dedico a esto. Sin cirugía, sin miedo, sin vueltas.",
+          "Iquiqueña de corazón, viajo hasta Puerto Montt porque no todos pueden llegar a mi sucursal — y a ti quiero conocerte en persona.",
         ],
         ctaTexto: "Reserva tu hora",
       },
@@ -90,7 +79,7 @@ const defaultConfig = {
         modalTitulo: "Reserva tu hora",
         modalSubtitulo: "Déjanos tus datos y te confirmamos disponibilidad. Cupos limitados en Puerto Montt.",
         botonSubmit: "Quiero mi hora",
-        mensajeExito: "Tu piel merece resultados reales.",
+        mensajeExito: "¡Listo! Pronto te contactaremos para confirmar tu evaluación en Puerto Montt.",
       },
       urls: {
         webhookN8n:
@@ -102,6 +91,7 @@ const defaultConfig = {
       },
     },
     metodoRegenerativo: {
+      mostrarBloqueConsulta: true,
       hero: {
         badge: "Sin límite de cupos · Disponible en Iquique",
         tituloLinea1: "Devuélvele a tu piel",

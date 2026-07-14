@@ -225,12 +225,12 @@ function Beneficios() {
 }
 
 /* ─── Testimonios ─── */
-function Testimonios() {
+function Testimonios({ afterHero = false }: { afterHero?: boolean }) {
   return (
     <section
       style={{
         width: "100%",
-        backgroundColor: "var(--bg)",
+        backgroundColor: afterHero ? "var(--bg-alt)" : "var(--bg)",
         borderTop: "1px solid var(--hairline)",
         padding: "96px 16px",
         position: "relative",
@@ -255,44 +255,22 @@ function Testimonios() {
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {svc.testimonios.cards.map((card, i) => (
-            <FadeIn key={i} delay={i * 90}>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {svc.testimonios.imagenes.map((src, i) => (
+            <FadeIn key={i} delay={i * 60}>
               <div
                 style={{
-                  backgroundColor: "var(--bg-alt)",
                   border: "1px solid var(--hairline)",
                   borderRadius: 12,
                   overflow: "hidden",
                 }}
               >
-                <div
-                  style={{
-                    width: "100%",
-                    aspectRatio: "4/3",
-                    backgroundColor: "#1A1A1A",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: 16,
-                    textAlign: "center",
-                  }}
-                >
-                  <p className="font-body text-[13px]" style={{ color: "var(--txt-2)" }}>
-                    {card.media}
-                  </p>
-                </div>
-                <div style={{ padding: "24px 22px" }}>
-                  <p
-                    className="font-body text-[14px] leading-relaxed mb-4"
-                    style={{ color: "var(--white)" }}
-                  >
-                    {card.texto}
-                  </p>
-                  <p className="font-body text-[13px] font-semibold" style={{ color: "var(--accent)" }}>
-                    {card.nombre}
-                  </p>
-                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={src}
+                  alt="Antes y después de paciente de Otomodelación"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                />
               </div>
             </FadeIn>
           ))}
@@ -354,31 +332,27 @@ function CasoDestacado() {
       <FadeBottom to="var(--bg-alt)" />
       <div className="max-w-2xl mx-auto flex flex-col items-center text-center" style={{ position: "relative", zIndex: 1 }}>
         <FadeIn>
-          <Badge>{svc.casoDestacado.badgeStats}</Badge>
-
           <div
             style={{
               width: "100%",
-              backgroundColor: "var(--bg-alt)",
               border: "1px solid var(--hairline)",
               borderRadius: 12,
-              padding: "40px 32px",
-              marginTop: 16,
+              overflow: "hidden",
             }}
           >
-            <p
-              className="font-body text-[11px] tracking-[0.14em] uppercase mb-4"
-              style={{ color: "var(--txt-2)" }}
-            >
-              Caso destacado
-            </p>
-            <p
-              className="font-body text-[18px] font-semibold"
-              style={{ color: "var(--white)" }}
-            >
-              {svc.casoDestacado.nombreResultado}
-            </p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={svc.casoDestacado.imagenUrl}
+              alt="Caso destacado de Otomodelación"
+              style={{ width: "100%", height: "auto", display: "block" }}
+            />
           </div>
+          <p
+            className="font-body text-[15px] font-semibold mt-6"
+            style={{ color: "var(--white)" }}
+          >
+            {svc.casoDestacado.caption}
+          </p>
         </FadeIn>
       </div>
     </section>
@@ -409,17 +383,16 @@ function BioProfesional({ onCta }: { onCta: () => void }) {
               borderRadius: "50%",
               backgroundColor: "#1A1A1A",
               border: "1px solid var(--hairline)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              overflow: "hidden",
               margin: "0 auto 24px",
-              padding: 12,
-              textAlign: "center",
             }}
           >
-            <p className="font-body text-[11px]" style={{ color: "var(--txt-2)" }}>
-              {svc.bioProfesional.fotoUrl}
-            </p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={svc.bioProfesional.fotoUrl}
+              alt={svc.bioProfesional.nombre}
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
           </div>
 
           <p
@@ -440,7 +413,7 @@ function BioProfesional({ onCta }: { onCta: () => void }) {
             {svc.bioProfesional.rol}
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mb-10">
+          <div className="grid grid-cols-2 gap-4 w-full mb-10">
             {svc.bioProfesional.stats.map((s, i) => (
               <div key={i} className="flex flex-col items-center gap-1">
                 <p style={{ fontFamily: "var(--font-sans)", fontWeight: 700, fontSize: 26, color: "var(--accent)" }}>
@@ -471,13 +444,20 @@ function BioProfesional({ onCta }: { onCta: () => void }) {
 /* ─── Page ─── */
 export default function Page() {
   const [formOpen, setFormOpen] = useState(false);
+  const mostrarBloqueConsulta = svc.mostrarBloqueConsulta;
 
   return (
     <>
       <Header />
       <Hero onCta={() => setFormOpen(true)} />
-      <Beneficios />
-      <Testimonios />
+      {mostrarBloqueConsulta ? (
+        <>
+          <Beneficios />
+          <Testimonios />
+        </>
+      ) : (
+        <Testimonios afterHero />
+      )}
       <CtaIntermedio onCta={() => setFormOpen(true)} />
       <CasoDestacado />
       <BioProfesional onCta={() => setFormOpen(true)} />
