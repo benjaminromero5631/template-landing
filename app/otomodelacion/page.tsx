@@ -228,11 +228,13 @@ function Beneficios() {
 function Testimonios({ afterHero = false }: { afterHero?: boolean }) {
   return (
     <section
+      className="px-2 md:px-4"
       style={{
         width: "100%",
         backgroundColor: afterHero ? "var(--bg-alt)" : "var(--bg)",
         borderTop: "1px solid var(--hairline)",
-        padding: "96px 16px",
+        paddingTop: 96,
+        paddingBottom: 96,
         position: "relative",
         overflow: "hidden",
       }}
@@ -242,7 +244,7 @@ function Testimonios({ afterHero = false }: { afterHero?: boolean }) {
       <div className="max-w-5xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
         <FadeIn>
           <h2
-            className="text-center mb-14"
+            className="text-center mb-14 px-2"
             style={{
               fontFamily: "var(--font-sans)",
               fontWeight: 700,
@@ -255,10 +257,11 @@ function Testimonios({ afterHero = false }: { afterHero?: boolean }) {
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
           {svc.testimonios.imagenes.map((src, i) => (
             <FadeIn key={i} delay={i * 60}>
               <div
+                className="aspect-[3/4] md:aspect-square"
                 style={{
                   border: "1px solid var(--hairline)",
                   borderRadius: 12,

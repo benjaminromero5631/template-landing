@@ -2,7 +2,7 @@ const defaultConfig = {
   clinica: {
     nombre: "Clínica Isabella",
     ciudad: "Chile",
-    logoUrl: "/logo.png",
+    logoUrl: "/logo-isabella.png",
   },
   entrada: {
     tarjetaOtomodelacion: {
@@ -39,7 +39,7 @@ const defaultConfig = {
         ],
       },
       testimonios: {
-        titulo: "Lo que dicen nuestras pacientes",
+        titulo: "Resultados reales de nuestras pacientes",
         imagenes: [
           "/otomodelacion/testimonio-01.png",
           "/otomodelacion/testimonio-02.png",
@@ -110,7 +110,7 @@ const defaultConfig = {
         ],
       },
       testimonios: {
-        titulo: "Lo que dicen nuestras pacientes",
+        titulo: "Resultados reales de nuestras pacientes",
         cards: [
           {
             media: "[Antes/Después o video de la paciente]",

@@ -228,11 +228,13 @@ function Beneficios() {
 function Testimonios() {
   return (
     <section
+      className="px-2 md:px-4"
       style={{
         width: "100%",
         backgroundColor: "var(--bg)",
         borderTop: "1px solid var(--hairline)",
-        padding: "96px 16px",
+        paddingTop: 96,
+        paddingBottom: 96,
         position: "relative",
         overflow: "hidden",
       }}
@@ -242,7 +244,7 @@ function Testimonios() {
       <div className="max-w-5xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
         <FadeIn>
           <h2
-            className="text-center mb-14"
+            className="text-center mb-14 px-2"
             style={{
               fontFamily: "var(--font-sans)",
               fontWeight: 700,
@@ -255,7 +257,7 @@ function Testimonios() {
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
           {svc.testimonios.cards.map((card, i) => (
             <FadeIn key={i} delay={i * 90}>
               <div
@@ -267,29 +269,29 @@ function Testimonios() {
                 }}
               >
                 <div
+                  className="aspect-[3/4] md:aspect-[4/3]"
                   style={{
                     width: "100%",
-                    aspectRatio: "4/3",
                     backgroundColor: "#1A1A1A",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    padding: 16,
+                    padding: 12,
                     textAlign: "center",
                   }}
                 >
-                  <p className="font-body text-[13px]" style={{ color: "var(--txt-2)" }}>
+                  <p className="font-body text-[12px] md:text-[13px]" style={{ color: "var(--txt-2)" }}>
                     {card.media}
                   </p>
                 </div>
-                <div style={{ padding: "24px 22px" }}>
+                <div className="p-4 md:px-[22px] md:py-6">
                   <p
-                    className="font-body text-[14px] leading-relaxed mb-4"
+                    className="font-body text-[13px] md:text-[14px] leading-relaxed mb-3 md:mb-4"
                     style={{ color: "var(--white)" }}
                   >
                     {card.texto}
                   </p>
-                  <p className="font-body text-[13px] font-semibold" style={{ color: "var(--accent)" }}>
+                  <p className="font-body text-[12px] md:text-[13px] font-semibold" style={{ color: "var(--accent)" }}>
                     {card.nombre}
                   </p>
                 </div>
