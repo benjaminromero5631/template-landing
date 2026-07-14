@@ -2,6 +2,12 @@
 
 import { useState, useEffect, useRef } from "react";
 
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
+
 interface LeadFormProps {
   open: boolean;
   onClose: () => void;
@@ -65,6 +71,13 @@ export default function LeadForm({ open, onClose, servicio, leadForm, urls }: Le
       if (res.ok) {
         const data = await res.json();
         const leadId = data?.lead_id;
+        try {
+          if (typeof window !== "undefined" && window.fbq) {
+            window.fbq('track', 'Lead', { content_name: servicio });
+          }
+        } catch (err) {
+          console.error("[LeadForm] fbq fallido:", err);
+        }
         window.location.href = `${urls.redirectAgendar}${leadId ? `?lead_id=${leadId}` : ""}`;
         return;
       }
