@@ -28,7 +28,7 @@ const defaultConfig = {
         subtitulo:
           "Resultado visible desde el primer día, sin que sea un proceso extenso. Solo en Puerto Montt del 11 al 13 de agosto.",
         heroTrustLine:
-          "Pionera en traer la Otomodelación a Chile — una de las pocas especialistas en esta técnica en el país.",
+          "Pionera en traer la Otomodelación a Chile, con experiencia dedicada a esta técnica.",
         ctaTexto: "Reserva tu hora",
         vslCaption: "Mira cómo lo lograron nuestras pacientes →",
       },

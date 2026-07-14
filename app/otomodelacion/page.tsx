@@ -272,13 +272,14 @@ function Testimonios({ afterHero = false }: { afterHero?: boolean }) {
                   border: "1px solid var(--hairline)",
                   borderRadius: 12,
                   overflow: "hidden",
+                  backgroundColor: "var(--bg-alt)",
                 }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={src}
                   alt="Antes y después de paciente de Otomodelación"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                  style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
                 />
               </div>
             </FadeIn>
