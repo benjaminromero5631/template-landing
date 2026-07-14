@@ -74,10 +74,9 @@ function FadeBottom({ to }: { to: string }) {
 function Hero({ onCta }: { onCta: () => void }) {
   return (
     <section
-      className="w-full flex flex-col items-center text-center px-4"
+      className="w-full flex flex-col items-center text-center px-4 pt-10 pb-16 md:pt-24 md:pb-20"
       style={{
         backgroundColor: "var(--bg)",
-        padding: "96px 16px 80px",
         position: "relative",
         overflow: "hidden",
       }}
@@ -257,7 +256,7 @@ function Testimonios() {
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
           {svc.testimonios.cards.map((card, i) => (
             <FadeIn key={i} delay={i * 90}>
               <div

@@ -26,7 +26,9 @@ const defaultConfig = {
         tituloLinea1: "El Cambio en Tus Orejas Que Buscas, en 1 Sola Sesión —",
         tituloLinea2Destacado: "Sin Cirugía",
         subtitulo:
-          "Resultado visible desde el primer día, sin ningún dolor. Solo en Puerto Montt del 11 al 13 de agosto.",
+          "Resultado visible desde el primer día, sin que sea un proceso extenso. Solo en Puerto Montt del 11 al 13 de agosto.",
+        heroTrustLine:
+          "Pionera en traer la Otomodelación a Chile — una de las pocas especialistas en esta técnica en el país.",
         ctaTexto: "Reserva tu hora",
         vslCaption: "Mira cómo lo lograron nuestras pacientes →",
       },

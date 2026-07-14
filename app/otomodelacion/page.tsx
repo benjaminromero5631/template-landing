@@ -74,10 +74,9 @@ function FadeBottom({ to }: { to: string }) {
 function Hero({ onCta }: { onCta: () => void }) {
   return (
     <section
-      className="w-full flex flex-col items-center text-center px-4"
+      className="w-full flex flex-col items-center text-center px-4 pt-10 pb-16 md:pt-24 md:pb-20"
       style={{
         backgroundColor: "var(--bg)",
-        padding: "96px 16px 80px",
         position: "relative",
         overflow: "hidden",
       }}
@@ -104,10 +103,17 @@ function Hero({ onCta }: { onCta: () => void }) {
         </h1>
 
         <p
-          className="font-body text-[16px] leading-relaxed max-w-[480px] mx-auto mb-10"
+          className="font-body text-[16px] leading-relaxed max-w-[480px] mx-auto mb-4"
           style={{ color: "var(--txt-2)" }}
         >
           {svc.hero.subtitulo}
+        </p>
+
+        <p
+          className="font-body text-[14px] leading-relaxed max-w-[480px] mx-auto mb-10"
+          style={{ color: "var(--accent)" }}
+        >
+          {svc.hero.heroTrustLine}
         </p>
 
         {/* Espacio para video/VSL */}
@@ -257,7 +263,7 @@ function Testimonios({ afterHero = false }: { afterHero?: boolean }) {
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4">
           {svc.testimonios.imagenes.map((src, i) => (
             <FadeIn key={i} delay={i * 60}>
               <div
