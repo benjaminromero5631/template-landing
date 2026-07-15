@@ -52,6 +52,52 @@ const defaultConfig = {
           "/otomodelacion/testimonio-07.png",
         ],
       },
+      comoFunciona: {
+        titulo: "Cómo funciona la Otomodelación",
+        bloques: [
+          {
+            titulo: "Sin Cortes",
+            texto: "Para el procedimiento se utiliza un hilo de sutura que permite trabajar el cartílago sin atravesar la oreja. La sutura se realiza por sobre el lóbulo y se dirige hacia el antihélix, logrando corregir la proyección de la oreja de forma precisa y natural.",
+          },
+          {
+            titulo: "Diseño Personalizado",
+            texto: "Una vez realizada la sutura, te entrego un espejo para que puedas escoger con calma y seguridad qué tan hacia atrás deseas tus orejitas. Este momento es clave, ya que permite ajustar el resultado a tu gusto personal y a lo que esperas ver en ti, logrando un resultado armónico, natural y profundamente personalizado.",
+          },
+        ],
+      },
+      mitosRealidad: {
+        titulo: "Mitos y realidades",
+        pares: [
+          {
+            mito: "Si me golpeo o me jalan fuerte la oreja se corta el hilo",
+            realidad: "Falso. No se corta el hilo, pero sí puede ocasionar que se inflame tu oreja.",
+          },
+          {
+            mito: "Son hilos que se reabsorben y después de un tiempo se pierde el resultado",
+            realidad: "Falso. Los hilos que se utilizan no se reabsorben ni se degradan por el cuerpo.",
+          },
+          {
+            mito: "Te cosen la oreja a la parte posterior del cuello o atraviesan la oreja y se ve por detrás",
+            realidad: "Falso. Se cose sin traspasar la oreja, con una técnica de abanico. No hay cicatriz ni costuras que se vean ni por delante ni por detrás.",
+          },
+          {
+            mito: "Una vez que te las haces no puedes intervenirlas de nuevo",
+            realidad: "Falso. Se puede entrar con bisturí haciendo una pequeña incisión para revertir el resultado si hiciera falta.",
+          },
+          {
+            mito: "No podré hacer más deportes de contacto o extremos",
+            realidad: "Esto es solo por las primeras 2 semanas de cicatrización, luego puedes retomar con normalidad.",
+          },
+        ],
+        cuidados:
+          "Cuidados reales: banda protectora durante 2 semanas (incluso para dormir), antiinflamatorios la primera semana, evitar mojar la zona la primera noche, y evitar playa o piscina durante las primeras 2 semanas.",
+      },
+      testimonioDestacado: {
+        cita: "Hoy puedo decirte que no duele, que el proceso es mucho más simple de lo que imaginamos y que el resultado vale totalmente la pena.",
+        nombre: "Yessy Solange Hormazabel Flores",
+        contexto:
+          "Yessy vivió bullying en el colegio por su oreja despegada. Lo pensó 2 años antes de decidirse y hoy se siente tranquila y feliz con el resultado.",
+      },
       ctaIntermedio: {
         ctaTexto: "Reserva tu hora",
         parrafos: [

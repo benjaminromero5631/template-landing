@@ -246,7 +246,7 @@ function Testimonios({ afterHero = false }: { afterHero?: boolean }) {
       }}
     >
       <GlowSoft />
-      <FadeBottom to="var(--bg-alt)" />
+      <FadeBottom to="var(--bg)" />
       <div className="max-w-5xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
         <FadeIn>
           <h2
@@ -285,6 +285,219 @@ function Testimonios({ afterHero = false }: { afterHero?: boolean }) {
             </FadeIn>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Cómo funciona ─── */
+function ComoFunciona() {
+  return (
+    <section
+      style={{
+        width: "100%",
+        backgroundColor: "var(--bg)",
+        borderTop: "1px solid var(--hairline)",
+        padding: "96px 16px",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      <GlowSoft />
+      <FadeBottom to="var(--bg-alt)" />
+      <div className="max-w-2xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
+        <FadeIn>
+          <h2
+            className="text-center mb-14"
+            style={{
+              fontFamily: "var(--font-sans)",
+              fontWeight: 700,
+              fontSize: "clamp(28px, 5vw, 40px)",
+              lineHeight: 1.2,
+              color: "var(--white)",
+            }}
+          >
+            {svc.comoFunciona.titulo}
+          </h2>
+        </FadeIn>
+
+        <div className="flex flex-col gap-10">
+          {svc.comoFunciona.bloques.map((bloque, i) => (
+            <FadeIn key={i} delay={i * 90}>
+              <div>
+                <p
+                  style={{
+                    fontFamily: "var(--font-sans)",
+                    fontWeight: 700,
+                    fontSize: 20,
+                    color: "var(--accent)",
+                    marginBottom: 10,
+                  }}
+                >
+                  {bloque.titulo}
+                </p>
+                <p
+                  className="font-body text-[15px] leading-relaxed"
+                  style={{ color: "var(--txt-2)" }}
+                >
+                  {bloque.texto}
+                </p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Mitos y realidades ─── */
+function MitosRealidad() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  return (
+    <section
+      style={{
+        width: "100%",
+        backgroundColor: "var(--bg-alt)",
+        borderTop: "1px solid var(--hairline)",
+        padding: "96px 16px",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      <GlowSoft />
+      <FadeBottom to="var(--bg)" />
+      <div className="max-w-2xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
+        <FadeIn>
+          <h2
+            className="text-center mb-14"
+            style={{
+              fontFamily: "var(--font-sans)",
+              fontWeight: 700,
+              fontSize: "clamp(28px, 5vw, 40px)",
+              lineHeight: 1.2,
+              color: "var(--white)",
+            }}
+          >
+            {svc.mitosRealidad.titulo}
+          </h2>
+        </FadeIn>
+
+        <div className="flex flex-col gap-3">
+          {svc.mitosRealidad.pares.map((par, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <FadeIn key={i} delay={i * 60}>
+                <div
+                  style={{
+                    border: "1px solid var(--hairline)",
+                    borderRadius: 12,
+                    overflow: "hidden",
+                    backgroundColor: "var(--bg)",
+                  }}
+                >
+                  <button
+                    onClick={() => setOpenIndex(isOpen ? null : i)}
+                    className="w-full text-left font-body text-[15px] font-semibold"
+                    style={{
+                      padding: "18px 20px",
+                      background: "none",
+                      border: "none",
+                      color: "var(--white)",
+                      cursor: "pointer",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      gap: 12,
+                    }}
+                  >
+                    <span>&ldquo;{par.mito}&rdquo;</span>
+                    <span
+                      style={{
+                        color: "var(--accent)",
+                        flexShrink: 0,
+                        fontSize: 20,
+                        lineHeight: 1,
+                        transform: isOpen ? "rotate(45deg)" : "none",
+                        transition: "transform 0.2s",
+                      }}
+                    >
+                      +
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <div style={{ padding: "0 20px 18px" }}>
+                      <p
+                        className="font-body text-[14px] leading-relaxed"
+                        style={{ color: "var(--accent)" }}
+                      >
+                        {par.realidad}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </FadeIn>
+            );
+          })}
+        </div>
+
+        <FadeIn delay={svc.mitosRealidad.pares.length * 60 + 60}>
+          <p
+            className="font-body text-[13px] leading-relaxed text-center mt-10"
+            style={{ color: "var(--txt-2)" }}
+          >
+            {svc.mitosRealidad.cuidados}
+          </p>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Testimonio destacado ─── */
+function TestimonioDestacado() {
+  return (
+    <section
+      style={{
+        width: "100%",
+        backgroundColor: "var(--bg)",
+        borderTop: "1px solid var(--hairline)",
+        padding: "96px 16px",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      <Glow />
+      <FadeBottom to="var(--bg-alt)" />
+      <div className="max-w-2xl mx-auto text-center" style={{ position: "relative", zIndex: 1 }}>
+        <FadeIn>
+          <blockquote style={{ margin: 0 }}>
+            <p
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontWeight: 700,
+                fontSize: "clamp(20px, 4vw, 26px)",
+                lineHeight: 1.4,
+                color: "var(--white)",
+                marginBottom: 20,
+              }}
+            >
+              &ldquo;{svc.testimonioDestacado.cita}&rdquo;
+            </p>
+          </blockquote>
+          <p className="font-body text-[14px] font-semibold" style={{ color: "var(--accent)" }}>
+            {svc.testimonioDestacado.nombre}
+          </p>
+          {svc.testimonioDestacado.contexto && (
+            <p
+              className="font-body text-[13px] leading-relaxed mt-4 max-w-[480px] mx-auto"
+              style={{ color: "var(--txt-2)" }}
+            >
+              {svc.testimonioDestacado.contexto}
+            </p>
+          )}
+        </FadeIn>
       </div>
     </section>
   );
@@ -468,6 +681,9 @@ export default function Page() {
       ) : (
         <Testimonios afterHero />
       )}
+      <ComoFunciona />
+      <MitosRealidad />
+      <TestimonioDestacado />
       <CtaIntermedio onCta={() => setFormOpen(true)} />
       <CasoDestacado />
       <BioProfesional onCta={() => setFormOpen(true)} />
