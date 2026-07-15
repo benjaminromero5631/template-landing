@@ -64,6 +64,11 @@ const defaultConfig = {
             texto: "Una vez realizada la sutura, te entrego un espejo para que puedas escoger con calma y seguridad qué tan hacia atrás deseas tus orejitas. Este momento es clave, ya que permite ajustar el resultado a tu gusto personal y a lo que esperas ver en ti, logrando un resultado armónico, natural y profundamente personalizado.",
           },
         ],
+        fotos: [
+          { src: "/otomodelacion/recuperacion-post-inmediato.jpg", label: "Post inmediato" },
+          { src: "/otomodelacion/recuperacion-post-2-dias.jpg", label: "Post 2 días" },
+          { src: "/otomodelacion/recuperacion-post-2-semanas.jpg", label: "Post 2 semanas" },
+        ],
       },
       mitosRealidad: {
         titulo: "Mitos y realidades",
@@ -98,6 +103,33 @@ const defaultConfig = {
         contexto:
           "Yessy vivió bullying en el colegio por su oreja despegada. Lo pensó 2 años antes de decidirse y hoy se siente tranquila y feliz con el resultado.",
       },
+      resenasGoogle: [
+        {
+          nombre: "Valentina Rodríguez",
+          texto: "La verdad tenía la doctora fue muy amable y me explicó cada paso y cada cosa lo cual me tranquilizó mucho, el procedimiento la verdad no me dolió nada muy detallista y delicada la verdad me encantó el resultado y sin duda volveré por otro retoque",
+          estrellas: 5,
+        },
+        {
+          nombre: "Daniela Guamán",
+          texto: "Excelente, atención muy buen recibimiento y todo muy buena calidad. El especialista explica todo con detalle y su calidez es única. Mi hija quedó feliz y emocionada. Muchas gracias por todo, sin duda volveremos!",
+          estrellas: 5,
+        },
+        {
+          nombre: "Victoria Pazmiño Jorratt",
+          texto: "Excelente profesional, logra dar a conocer cada detalle de los procedimientos de manera específica, bajo un leguaje entendible que permite comprender lo que uno se realiza, otorga grato ambiente de confianza, monitoreando a cada instante cómo se siente el paciente... muy recomendado excelente experiencia!",
+          estrellas: 5,
+        },
+        {
+          nombre: "Nicolás Zurita",
+          texto: "Buena buena y grata experiencia, donde te entregan la seguridad necesaria para no dudar de realizar el procedimiento, ambiente cómodo y confiable, todo muy prolijo. muy feliz con el resultado",
+          estrellas: 5,
+        },
+        {
+          nombre: "Roberto Zenteno",
+          texto: "La recomiendo exelente atención profesional por parte de su personal, muy satisfecho por la intervención efectuada.",
+          estrellas: 5,
+        },
+      ],
       ctaIntermedio: {
         ctaTexto: "Reserva tu hora",
         parrafos: [

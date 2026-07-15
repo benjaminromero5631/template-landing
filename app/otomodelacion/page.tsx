@@ -346,6 +346,37 @@ function ComoFunciona() {
             </FadeIn>
           ))}
         </div>
+
+        <div className="grid grid-cols-3 gap-3 md:gap-4 mt-14">
+          {svc.comoFunciona.fotos.map((foto, i) => (
+            <FadeIn key={i} delay={i * 90}>
+              <div>
+                <div
+                  className="aspect-square"
+                  style={{
+                    border: "1px solid var(--hairline)",
+                    borderRadius: 12,
+                    overflow: "hidden",
+                    backgroundColor: "var(--bg-alt)",
+                  }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={foto.src}
+                    alt={foto.label}
+                    style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
+                  />
+                </div>
+                <p
+                  className="font-body text-[11px] md:text-[13px] text-center mt-2"
+                  style={{ color: "var(--txt-2)" }}
+                >
+                  {foto.label}
+                </p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -498,6 +529,70 @@ function TestimonioDestacado() {
             </p>
           )}
         </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Reseñas de Google ─── */
+function ReseñasGoogle() {
+  return (
+    <section
+      style={{
+        width: "100%",
+        backgroundColor: "var(--bg-alt)",
+        borderTop: "1px solid var(--hairline)",
+        padding: "96px 16px",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      <GlowSoft />
+      <FadeBottom to="var(--bg-alt)" />
+      <div className="max-w-5xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
+        <FadeIn>
+          <h2
+            className="text-center mb-14"
+            style={{
+              fontFamily: "var(--font-sans)",
+              fontWeight: 700,
+              fontSize: "clamp(28px, 5vw, 40px)",
+              lineHeight: 1.2,
+              color: "var(--white)",
+            }}
+          >
+            Lo que dicen en Google
+          </h2>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {svc.resenasGoogle.map((resena, i) => (
+            <FadeIn key={i} delay={i * 70}>
+              <div
+                style={{
+                  backgroundColor: "var(--bg)",
+                  border: "1px solid var(--hairline)",
+                  borderRadius: 12,
+                  padding: "24px 22px",
+                  height: "100%",
+                }}
+              >
+                <p style={{ color: "var(--accent)", fontSize: 16, letterSpacing: 2, marginBottom: 12 }}>
+                  {"★".repeat(resena.estrellas)}
+                </p>
+                <p
+                  className="font-body text-[14px] leading-relaxed mb-4"
+                  style={{ color: "var(--white)" }}
+                >
+                  {resena.texto}
+                </p>
+                <p className="font-body text-[13px] font-semibold" style={{ color: "var(--accent)" }}>
+                  {resena.nombre}
+                </p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -684,6 +779,7 @@ export default function Page() {
       <ComoFunciona />
       <MitosRealidad />
       <TestimonioDestacado />
+      <ReseñasGoogle />
       <CtaIntermedio onCta={() => setFormOpen(true)} />
       <CasoDestacado />
       <BioProfesional onCta={() => setFormOpen(true)} />
