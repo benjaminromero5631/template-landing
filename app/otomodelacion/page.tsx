@@ -880,13 +880,13 @@ export default function Page() {
         <Testimonios afterHero />
       )}
       <ComoFunciona />
-      <MitosRealidad />
+      <BioProfesional onCta={() => setFormOpen(true)} />
       <TestimonioDestacado />
       <ReseñasGoogle />
       <PasosParaTuCupo />
       <CtaIntermedio onCta={() => setFormOpen(true)} />
       <CasoDestacado />
-      <BioProfesional onCta={() => setFormOpen(true)} />
+      <MitosRealidad />
       <Footer copyright={svc.footer.copyright} />
       <LeadForm
         open={formOpen}
