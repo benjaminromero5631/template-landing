@@ -178,8 +178,28 @@ const defaultConfig = {
   },
 };
 
+function isPlainObject(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function deepMerge<T>(base: T, override: unknown): T {
+  if (Array.isArray(override)) {
+    return override as unknown as T;
+  }
+
+  if (isPlainObject(base) && isPlainObject(override)) {
+    const result: Record<string, unknown> = { ...base };
+    for (const key of Object.keys(override)) {
+      result[key] = key in base ? deepMerge(base[key], override[key]) : override[key];
+    }
+    return result as T;
+  }
+
+  return override === undefined ? base : (override as T);
+}
+
 const config = process.env.NEXT_PUBLIC_CLINIC_CONFIG
-  ? ({ ...defaultConfig, ...JSON.parse(process.env.NEXT_PUBLIC_CLINIC_CONFIG) } as typeof defaultConfig)
+  ? deepMerge(defaultConfig, JSON.parse(process.env.NEXT_PUBLIC_CLINIC_CONFIG))
   : defaultConfig;
 
 export { config };
