@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FadeIn from "@/components/FadeIn";
 import Footer from "@/components/sections/Footer";
 import Header from "@/components/Header";
@@ -598,6 +598,109 @@ function ReseñasGoogle() {
   );
 }
 
+/* ─── Pasos para tu cupo ─── */
+function PasosParaTuCupo() {
+  const lineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = lineRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("linea-visible");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.08 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section
+      style={{
+        width: "100%",
+        backgroundColor: "var(--bg)",
+        borderTop: "1px solid var(--hairline)",
+        padding: "96px 16px",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      <Glow />
+      <FadeBottom to="var(--bg-alt)" />
+      <div className="max-w-2xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
+        <FadeIn>
+          <h2
+            className="text-center mb-14"
+            style={{
+              fontFamily: "var(--font-sans)",
+              fontWeight: 700,
+              fontSize: "clamp(28px, 5vw, 40px)",
+              lineHeight: 1.2,
+              color: "var(--white)",
+            }}
+          >
+            Pasos para tu cupo
+          </h2>
+        </FadeIn>
+
+        <div style={{ position: "relative" }}>
+          <div
+            ref={lineRef}
+            className="linea-hidden"
+            style={{
+              position: "absolute",
+              left: 23,
+              top: 24,
+              bottom: 24,
+              width: 2,
+              background: "linear-gradient(to bottom, var(--accent), rgba(196,151,74,0.15))",
+            }}
+          />
+          <div className="flex flex-col gap-8">
+            {svc.pasosParaTuCupo.map((paso, i) => (
+              <FadeIn key={paso.numero} delay={i * 120}>
+                <div className="flex items-start gap-5">
+                  <div
+                    style={{
+                      flexShrink: 0,
+                      width: 48,
+                      height: 48,
+                      borderRadius: "50%",
+                      backgroundColor: "var(--bg-alt)",
+                      border: "1px solid var(--accent)",
+                      color: "var(--accent)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontFamily: "var(--font-sans)",
+                      fontWeight: 700,
+                      fontSize: 18,
+                      position: "relative",
+                      zIndex: 1,
+                    }}
+                  >
+                    {paso.numero}
+                  </div>
+                  <p
+                    className="font-body text-[15px] leading-relaxed pt-2"
+                    style={{ color: "var(--white)" }}
+                  >
+                    {paso.texto}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── CTA intermedio + copy persuasivo ─── */
 function CtaIntermedio({ onCta }: { onCta: () => void }) {
   return (
@@ -780,6 +883,7 @@ export default function Page() {
       <MitosRealidad />
       <TestimonioDestacado />
       <ReseñasGoogle />
+      <PasosParaTuCupo />
       <CtaIntermedio onCta={() => setFormOpen(true)} />
       <CasoDestacado />
       <BioProfesional onCta={() => setFormOpen(true)} />

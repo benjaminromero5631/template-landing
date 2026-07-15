@@ -22,11 +22,11 @@ const defaultConfig = {
     otomodelacion: {
       mostrarBloqueConsulta: false,
       hero: {
-        badge: "Solo para quienes quieren cambiar la forma de sus orejas — Puerto Montt",
-        tituloLinea1: "El Cambio en Tus Orejas Que Buscas, en 1 Sola Sesión —",
+        badge: "Solo para quienes buscan cambiar la amplitud de sus orejas",
+        tituloLinea1: "El cambio que buscas en tus orejas en una sola sesión —",
         tituloLinea2Destacado: "Sin Cirugía",
         subtitulo:
-          "Resultado visible desde el primer día, sin que sea un proceso extenso. Solo en Puerto Montt del 11 al 13 de agosto.",
+          "Resultados visibles desde el primer día y con reincorporación inmediata a tu rutina habitual, salvo algunos cuidados puntuales durante la recuperación.",
         heroTrustLine:
           "Pionera en traer la Otomodelación a Chile, con experiencia dedicada a esta técnica.",
         ctaTexto: "Reserva tu hora",
@@ -50,6 +50,8 @@ const defaultConfig = {
           "/otomodelacion/testimonio-05.png",
           "/otomodelacion/testimonio-06.png",
           "/otomodelacion/testimonio-07.png",
+          "/otomodelacion/testimonio-08.png",
+          "/otomodelacion/testimonio-09.png",
         ],
       },
       comoFunciona: {
@@ -103,6 +105,26 @@ const defaultConfig = {
         contexto:
           "Yessy vivió bullying en el colegio por su oreja despegada. Lo pensó 2 años antes de decidirse y hoy se siente tranquila y feliz con el resultado.",
       },
+      pasosParaTuCupo: [
+        {
+          numero: 1,
+          texto:
+            "Reserva ahora tu evaluación online (precio normal $30.000, pero SOLO para Puerto Montt: $15.000)",
+        },
+        {
+          numero: 2,
+          texto:
+            "Conoce a la profesional a cargo, resuelve tus dudas y confirma si eres candidata a la Otomodelación",
+        },
+        {
+          numero: 3,
+          texto: "Deja agendado tu cupo en las fechas disponibles en Puerto Montt",
+        },
+        {
+          numero: 4,
+          texto: "Los $15.000 se descuentan de tu total al momento del procedimiento",
+        },
+      ],
       resenasGoogle: [
         {
           nombre: "Valentina Rodríguez",
