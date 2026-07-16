@@ -248,8 +248,8 @@ const defaultConfig = {
       },
       bioProfesional: {
         fotoUrl: "[Foto de la profesional]",
-        nombre: "[Nombre]",
-        rol: "[Especialidad/Rol]",
+        nombre: "Isabella Sanquea",
+        rol: "Enfermera especialista en Armonización Facial",
         stats: [
           { valor: "[X]", label: "[años de experiencia]" },
           { valor: "[X]", label: "[pacientes atendidas]" },
