@@ -383,7 +383,7 @@ function ComoFunciona() {
 }
 
 /* ─── Mitos y realidades ─── */
-function MitosRealidad() {
+function MitosRealidad({ onCta }: { onCta: () => void }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -480,6 +480,12 @@ function MitosRealidad() {
           >
             {svc.mitosRealidad.cuidados}
           </p>
+        </FadeIn>
+
+        <FadeIn delay={svc.mitosRealidad.pares.length * 60 + 120}>
+          <div className="text-center mt-10">
+            <CtaButton onClick={onCta}>Reserva tu hora</CtaButton>
+          </div>
         </FadeIn>
       </div>
     </section>
@@ -661,7 +667,7 @@ function PasosParaTuCupo() {
             }}
           />
           <div className="flex flex-col gap-8">
-            {svc.pasosParaTuCupo.map((paso, i) => (
+            {svc.pasosParaTuCupo.pasos.map((paso, i) => (
               <FadeIn key={paso.numero} delay={i * 120}>
                 <div className="flex items-start gap-5">
                   <div
@@ -696,6 +702,15 @@ function PasosParaTuCupo() {
             ))}
           </div>
         </div>
+
+        <FadeIn delay={svc.pasosParaTuCupo.pasos.length * 120 + 120}>
+          <p
+            className="font-body text-[15px] leading-relaxed text-center mt-12"
+            style={{ color: "var(--accent)", fontWeight: 700 }}
+          >
+            {svc.pasosParaTuCupo.notaPrecio}
+          </p>
+        </FadeIn>
       </div>
     </section>
   );
@@ -886,7 +901,7 @@ export default function Page() {
       <PasosParaTuCupo />
       <CtaIntermedio onCta={() => setFormOpen(true)} />
       <CasoDestacado />
-      <MitosRealidad />
+      <MitosRealidad onCta={() => setFormOpen(true)} />
       <Footer copyright={svc.footer.copyright} />
       <LeadForm
         open={formOpen}

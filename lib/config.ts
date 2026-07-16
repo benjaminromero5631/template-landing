@@ -1,6 +1,6 @@
 const defaultConfig = {
   clinica: {
-    nombre: "Clínica Isabella",
+    nombre: "Isabella Clínica Estética",
     ciudad: "Chile",
     logoUrl: "/logo-isabella.png",
   },
@@ -25,8 +25,7 @@ const defaultConfig = {
         badge: "Solo para quienes buscan cambiar la amplitud de sus orejas",
         tituloLinea1: "El cambio que buscas en tus orejas en una sola sesión —",
         tituloLinea2Destacado: "Sin Cirugía",
-        subtitulo:
-          "Resultados visibles desde el primer día y con reincorporación inmediata a tu rutina habitual, salvo algunos cuidados puntuales durante la recuperación.",
+        subtitulo: "Resultados visibles desde el primer día.",
         heroTrustLine:
           "Pionera en traer la Otomodelación a Chile, con experiencia dedicada a esta técnica.",
         ctaTexto: "Reserva tu hora",
@@ -105,26 +104,30 @@ const defaultConfig = {
         contexto:
           "Yessy vivió bullying en el colegio por su oreja despegada. Lo pensó 2 años antes de decidirse y hoy se siente tranquila y feliz con el resultado.",
       },
-      pasosParaTuCupo: [
-        {
-          numero: 1,
-          texto:
-            "Reserva ahora tu evaluación online (precio normal $30.000, pero SOLO para Puerto Montt: $15.000)",
-        },
-        {
-          numero: 2,
-          texto:
-            "Conoce a la profesional a cargo, resuelve tus dudas y confirma si eres candidata a la Otomodelación",
-        },
-        {
-          numero: 3,
-          texto: "Deja agendado tu cupo en las fechas disponibles en Puerto Montt",
-        },
-        {
-          numero: 4,
-          texto: "Los $15.000 se descuentan de tu total al momento del procedimiento",
-        },
-      ],
+      pasosParaTuCupo: {
+        pasos: [
+          {
+            numero: 1,
+            texto:
+              "Reserva ahora tu evaluación online (precio normal $30.000, pero SOLO para Puerto Montt: $15.000)",
+          },
+          {
+            numero: 2,
+            texto:
+              "Conoce a la profesional a cargo, resuelve tus dudas y confirma si eres candidata a la Otomodelación",
+          },
+          {
+            numero: 3,
+            texto: "Deja agendado tu cupo en las fechas disponibles en Puerto Montt",
+          },
+          {
+            numero: 4,
+            texto: "Los $15.000 se descuentan de tu total al momento del procedimiento",
+          },
+        ],
+        notaPrecio:
+          "Valor de tu Otomodelación: $699.990 — todos los medios de pago, hasta 3 cuotas a precio contado.",
+      },
       resenasGoogle: [
         {
           nombre: "Valentina Rodríguez",
@@ -155,7 +158,7 @@ const defaultConfig = {
       ctaIntermedio: {
         ctaTexto: "Reserva tu hora",
         parrafos: [
-          "Estaré en Puerto Montt solo el 11, 12 y 13 de agosto — máximo 20 cupos para todo el viaje. Agenda tu evaluación ahora.",
+          "Estaré en Puerto Montt solo el 11, 12 y 13 de agosto — máximo 8 cupos para todo el viaje. Agenda tu evaluación ahora.",
         ],
       },
       casoDestacado: {
