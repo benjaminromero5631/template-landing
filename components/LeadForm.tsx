@@ -78,7 +78,9 @@ export default function LeadForm({ open, onClose, servicio, leadForm, urls }: Le
         } catch (err) {
           console.error("[LeadForm] fbq fallido:", err);
         }
-        window.location.href = `${urls.redirectAgendar}${leadId ? `?lead_id=${leadId}` : ""}`;
+        const redirectUrl = new URL(urls.redirectAgendar);
+        if (leadId) redirectUrl.searchParams.set("lead_id", leadId);
+        window.location.href = redirectUrl.toString();
         return;
       }
       console.error("[LeadForm] webhook respondio con status:", res.status, res.statusText);
