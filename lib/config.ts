@@ -128,7 +128,7 @@ const defaultConfig = {
           },
         ],
         notaPrecio:
-          "Valor de tu Otomodelación: $699.990 — todos los medios de pago, hasta 3 cuotas a precio contado.",
+          "Valor de tu Otomodelación: $699.990 — todos los medios de pago, hasta 6 cuotas sin interés.",
       },
       resenasGoogle: [
         {

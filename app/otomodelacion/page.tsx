@@ -72,6 +72,23 @@ function FadeBottom({ to }: { to: string }) {
 
 /* ─── Hero ─── */
 function Hero({ onCta }: { onCta: () => void }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const unmute = () => {
+      const video = videoRef.current;
+      if (video) video.muted = false;
+    };
+    window.addEventListener("click", unmute, { once: true });
+    window.addEventListener("scroll", unmute, { once: true });
+    window.addEventListener("touchstart", unmute, { once: true });
+    return () => {
+      window.removeEventListener("click", unmute);
+      window.removeEventListener("scroll", unmute);
+      window.removeEventListener("touchstart", unmute);
+    };
+  }, []);
+
   return (
     <section
       className="w-full flex flex-col items-center text-center px-4 pt-10 pb-16 md:pt-24 md:pb-20"
@@ -130,7 +147,10 @@ function Hero({ onCta }: { onCta: () => void }) {
             }}
           >
             <video
+              ref={videoRef}
               src={svc.hero.vslUrl}
+              autoPlay
+              muted
               controls
               playsInline
               preload="metadata"
