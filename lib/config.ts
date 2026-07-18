@@ -30,6 +30,8 @@ const defaultConfig = {
           "Pionera en traer la Otomodelación a Chile, con experiencia dedicada a esta técnica.",
         ctaTexto: "Reserva tu hora",
         vslCaption: "Mira cómo lo lograron nuestras pacientes →",
+        vslUrl:
+          "https://pub-76a904125ecf45e688bc318915e6190c.r2.dev/clinicas/VSL-Isabella-Otomodelacion.mp4",
       },
       beneficios: {
         titulo: "Tu primera consulta incluye",

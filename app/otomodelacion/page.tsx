@@ -116,7 +116,7 @@ function Hero({ onCta }: { onCta: () => void }) {
           {svc.hero.heroTrustLine}
         </p>
 
-        {/* Espacio para video/VSL */}
+        {/* VSL de Otomodelación */}
         <div style={{ width: "100%", maxWidth: 680, margin: "0 auto" }}>
           <div
             style={{
@@ -129,32 +129,19 @@ function Hero({ onCta }: { onCta: () => void }) {
               overflow: "hidden",
             }}
           >
-            <div
+            <video
+              src={svc.hero.vslUrl}
+              controls
+              playsInline
+              preload="metadata"
               style={{
                 position: "absolute",
                 inset: 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
               }}
-            >
-              <div
-                style={{
-                  width: 72,
-                  height: 72,
-                  borderRadius: "50%",
-                  background: "rgba(196,151,74,0.12)",
-                  border: "2px solid var(--accent)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="var(--accent)">
-                  <polygon points="6,4 20,12 6,20" />
-                </svg>
-              </div>
-            </div>
+            />
           </div>
           <p
             className="font-body text-[13px] mt-4"
