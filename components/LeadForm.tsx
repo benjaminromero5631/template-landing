@@ -66,7 +66,14 @@ export default function LeadForm({ open, onClose, servicio, leadForm, urls }: Le
         method: "POST",
         mode: "cors",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nombre: name, telefono: phone, email, servicio }),
+        body: JSON.stringify({
+          nombre: name,
+          telefono: phone,
+          email,
+          servicio,
+          texto_legal_version: "v1",
+          texto_legal_timestamp: new Date().toISOString(),
+        }),
       });
       if (res.ok) {
         const data = await res.json();
@@ -177,6 +184,14 @@ export default function LeadForm({ open, onClose, servicio, leadForm, urls }: Le
             >
               {loading ? "Procesando..." : leadForm.botonSubmit}
             </button>
+
+            <p style={{ marginTop: 14, fontSize: 12, lineHeight: 1.5, color: "var(--txt-3)", fontWeight: 300 }}>
+              Al enviar tus datos, aceptas nuestra{" "}
+              <a href="/politica-privacidad" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "underline" }}>
+                Política de Privacidad
+              </a>{" "}
+              y autorizas el tratamiento de tu información para ser contactado/a y agendar tu consulta.
+            </p>
           </form>
         ) : (
           <div style={{ textAlign: "center", padding: "14px 0 6px", animation: "fadeUp .5s ease both" }}>
