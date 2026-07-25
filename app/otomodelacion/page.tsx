@@ -723,6 +723,64 @@ function PasosParaTuCupo() {
   );
 }
 
+/* ─── Oferta ─── */
+function Oferta({ onCta }: { onCta: () => void }) {
+  return (
+    <section
+      style={{
+        width: "100%",
+        backgroundColor: "var(--bg-alt)",
+        borderTop: "1px solid var(--hairline)",
+        padding: "96px 16px",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      <Glow />
+      <FadeBottom to="var(--bg)" />
+      <div className="max-w-2xl mx-auto text-center" style={{ position: "relative", zIndex: 1 }}>
+        <FadeIn>
+          <span
+            className="inline-block font-body text-[13px] font-bold tracking-[0.1em] uppercase mb-8 px-6 py-3"
+            style={{
+              color: "#FFFFFF",
+              background: "linear-gradient(135deg, #000000 0%, #C4974A 100%)",
+              borderRadius: 999,
+            }}
+          >
+            {svc.oferta.escasez}
+          </span>
+
+          <div className="flex flex-col items-center gap-2 mb-10">
+            <p
+              className="font-body text-[20px]"
+              style={{
+                color: "var(--txt-3)",
+                textDecoration: "line-through",
+              }}
+            >
+              {svc.oferta.precioAnterior}
+            </p>
+            <p
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontWeight: 800,
+                fontSize: "clamp(48px, 9vw, 76px)",
+                lineHeight: 1,
+                color: "var(--accent)",
+              }}
+            >
+              {svc.oferta.precioFinal}
+            </p>
+          </div>
+
+          <CtaButton onClick={onCta}>Reserva tu hora</CtaButton>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
 /* ─── CTA intermedio + copy persuasivo ─── */
 function CtaIntermedio({ onCta }: { onCta: () => void }) {
   return (
@@ -906,6 +964,7 @@ export default function Page() {
       <TestimonioDestacado />
       <ReseñasGoogle />
       <PasosParaTuCupo />
+      <Oferta onCta={() => setFormOpen(true)} />
       <CtaIntermedio onCta={() => setFormOpen(true)} />
       <CasoDestacado />
       <MitosRealidad onCta={() => setFormOpen(true)} />
