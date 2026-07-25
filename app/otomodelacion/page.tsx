@@ -971,6 +971,7 @@ export default function Page() {
     <>
       <Header />
       <Hero onCta={() => setFormOpen(true)} />
+      <Oferta onCta={() => setFormOpen(true)} />
       {mostrarBloqueConsulta ? (
         <>
           <Beneficios />
@@ -982,7 +983,6 @@ export default function Page() {
       <ComoFunciona />
       <BioProfesional onCta={() => setFormOpen(true)} />
       <TestimonioDestacado />
-      <Oferta onCta={() => setFormOpen(true)} />
       <ReseñasGoogle />
       <PasosParaTuCupo />
       <CtaIntermedio onCta={() => setFormOpen(true)} />
