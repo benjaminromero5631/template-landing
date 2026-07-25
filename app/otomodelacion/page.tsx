@@ -962,9 +962,9 @@ export default function Page() {
       <ComoFunciona />
       <BioProfesional onCta={() => setFormOpen(true)} />
       <TestimonioDestacado />
+      <Oferta onCta={() => setFormOpen(true)} />
       <ReseñasGoogle />
       <PasosParaTuCupo />
-      <Oferta onCta={() => setFormOpen(true)} />
       <CtaIntermedio onCta={() => setFormOpen(true)} />
       <CasoDestacado />
       <MitosRealidad onCta={() => setFormOpen(true)} />
