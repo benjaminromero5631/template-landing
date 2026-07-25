@@ -1,6 +1,8 @@
 # Pendientes — Otomodelación WhatsApp Flow
 
-Rama: `feature/otomodelacion-whatsapp-flow` (creada desde `main` actualizado). Sin push.
+Rama original: `feature/otomodelacion-whatsapp-flow` (ya mergeada y pusheada a `main` — commits `ff9dab4`, `ee1afcd`, `f83371a`, `660c693`, más "4 cupos" en más CTAs en `05b5a33`, directo en `main`).
+
+Rama actual: `feature/otomodelacion-oferta-reorden-2` (creada desde `main` actualizado tras el merge anterior). Sin push.
 
 ## a) Commits
 
@@ -12,6 +14,11 @@ Rama: `feature/otomodelacion-whatsapp-flow` (creada desde `main` actualizado). S
   - `app/otomodelacion/page.tsx`: solo cambio de orden de renderizado, sin tocar contenido de ninguna sección.
   - Orden ANTES: Hero → Beneficios/Testimonios → ComoFunciona → BioProfesional → TestimonioDestacado → ReseñasGoogle → PasosParaTuCupo → Oferta → CtaIntermedio → CasoDestacado → MitosRealidad → Footer.
   - Orden DESPUÉS: Hero → Beneficios/Testimonios → ComoFunciona → BioProfesional → TestimonioDestacado → Oferta → ReseñasGoogle → PasosParaTuCupo → CtaIntermedio → CasoDestacado → MitosRealidad → Footer.
+
+- `9f34fe3` refactor(otomodelacion): mover seccion Oferta justo despues del Hero
+  - `app/otomodelacion/page.tsx`: solo cambio de orden de renderizado, sin tocar contenido de la sección Oferta. Benjamín confirmó por captura que la quería más arriba, inmediatamente después del botón "Reserva tu hora" bajo el video del Hero.
+  - Orden ANTES: Hero → Beneficios/Testimonios → ComoFunciona → BioProfesional → TestimonioDestacado → Oferta → ReseñasGoogle → PasosParaTuCupo → CtaIntermedio → CasoDestacado → MitosRealidad → Footer.
+  - Orden DESPUÉS: Hero → Oferta → Beneficios/Testimonios → ComoFunciona → BioProfesional → TestimonioDestacado → ReseñasGoogle → PasosParaTuCupo → CtaIntermedio → CasoDestacado → MitosRealidad → Footer.
 
 - `660c693` fix(otomodelacion): mejorar contraste y tamano del precio tachado en Oferta
   - `app/otomodelacion/page.tsx`: precio anterior ($699.990 tachado) pasó de `20px`/`var(--txt-3)` (rgba blanco 45%, bajo contraste) a `clamp(24px, 4vw, 32px)`/`font-weight:600`/`var(--txt-2)` (#888888 sólido). Sigue siendo claramente secundario frente al precio final (48-76px, `var(--accent)`), pero ahora legible de un vistazo. Solo tokens ya existentes en `app/globals.css`.
