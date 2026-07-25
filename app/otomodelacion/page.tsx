@@ -173,6 +173,12 @@ function Hero({ onCta }: { onCta: () => void }) {
 
         <div style={{ marginTop: 40 }}>
           <CtaButton onClick={onCta}>{svc.hero.ctaTexto}</CtaButton>
+          <p
+            className="font-body text-[13px] font-semibold mt-3"
+            style={{ color: "var(--accent)" }}
+          >
+            {svc.oferta.escasez}
+          </p>
         </div>
       </FadeIn>
     </section>
@@ -812,6 +818,12 @@ function CtaIntermedio({ onCta }: { onCta: () => void }) {
             ))}
           </div>
           <CtaButton onClick={onCta}>{svc.ctaIntermedio.ctaTexto}</CtaButton>
+          <p
+            className="font-body text-[13px] font-semibold mt-3"
+            style={{ color: "var(--accent)" }}
+          >
+            {svc.oferta.escasez}
+          </p>
         </FadeIn>
       </div>
     </section>
@@ -938,6 +950,12 @@ function BioProfesional({ onCta }: { onCta: () => void }) {
           </div>
 
           <CtaButton onClick={onCta}>{svc.bioProfesional.ctaTexto}</CtaButton>
+          <p
+            className="font-body text-[13px] font-semibold mt-3"
+            style={{ color: "var(--accent)" }}
+          >
+            {svc.oferta.escasez}
+          </p>
         </FadeIn>
       </div>
     </section>
