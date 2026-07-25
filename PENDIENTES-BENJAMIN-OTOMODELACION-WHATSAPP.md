@@ -8,6 +8,11 @@ Rama: `feature/otomodelacion-whatsapp-flow` (creada desde `main` actualizado). S
   - `lib/config.ts`: agrega bloque `servicios.otomodelacion.oferta` (escasez "Últimos 4 cupos", precioAnterior "$699.990", precioFinal "$450.000"). Mantiene intacto `pasosParaTuCupo.notaPrecio` existente.
   - `app/otomodelacion/page.tsx`: nuevo componente `Oferta` con jerarquía visual de e-commerce (badge de escasez, precio anterior tachado en gris, precio final grande en `--accent`), insertado entre `PasosParaTuCupo` y `CtaIntermedio`.
 
+- `f83371a` refactor(otomodelacion): mover seccion Oferta antes de resenas de Google
+  - `app/otomodelacion/page.tsx`: solo cambio de orden de renderizado, sin tocar contenido de ninguna sección.
+  - Orden ANTES: Hero → Beneficios/Testimonios → ComoFunciona → BioProfesional → TestimonioDestacado → ReseñasGoogle → PasosParaTuCupo → Oferta → CtaIntermedio → CasoDestacado → MitosRealidad → Footer.
+  - Orden DESPUÉS: Hero → Beneficios/Testimonios → ComoFunciona → BioProfesional → TestimonioDestacado → Oferta → ReseñasGoogle → PasosParaTuCupo → CtaIntermedio → CasoDestacado → MitosRealidad → Footer.
+
 - `ee1afcd` feat(otomodelacion): CTA redirige a WhatsApp con pixel Lead en vez de /agendar
   - `components/LeadForm.tsx`: extrae la lógica post-submit a `goToNext(leadId?)`, condicionada por `servicio`:
     - `servicio === "otomodelacion"` → dispara `fbq('track','Lead',...)` y redirige a `https://wa.me/56945592667?text=...` con el mensaje URL-encoded pedido.
