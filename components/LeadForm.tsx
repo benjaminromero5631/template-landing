@@ -53,13 +53,34 @@ export default function LeadForm({ open, onClose, servicio, leadForm, urls }: Le
     if (!form.checkValidity()) { form.reportValidity(); return; }
     const name = (form.elements.namedItem("name") as HTMLInputElement).value.trim();
     const phone = (form.elements.namedItem("phone") as HTMLInputElement).value.trim();
-    const email = (form.elements.namedItem("email") as HTMLInputElement).value.trim() || null;
+    const email = (form.elements.namedItem("email") as HTMLInputElement | null)?.value.trim() || null;
     setFirstName(name.split(" ")[0] || "gracias");
     setLoading(true);
+
+    const goToNext = (leadId?: string) => {
+      try {
+        if (typeof window !== "undefined" && window.fbq) {
+          window.fbq('track', 'Lead', { content_name: servicio });
+        }
+      } catch (err) {
+        console.error("[LeadForm] fbq fallido:", err);
+      }
+      if (servicio === "otomodelacion") {
+        const mensaje = encodeURIComponent(
+          "Hola! me interesa la Otomodelacion, quiero hacerme la evaluación para optar en puerto montt"
+        );
+        window.location.href = `https://wa.me/56945592667?text=${mensaje}`;
+      } else {
+        const redirectUrl = new URL(urls.redirectAgendar);
+        if (leadId) redirectUrl.searchParams.set("lead_id", leadId);
+        window.location.href = redirectUrl.toString();
+      }
+    };
+
     const fallback = () => {
       setLoading(false);
       setSuccess(true);
-      setTimeout(() => { window.location.href = urls.redirectAgendar; }, 1000);
+      setTimeout(() => goToNext(), 1000);
     };
     try {
       const res = await fetch(urls.webhookN8n, {
@@ -77,17 +98,7 @@ export default function LeadForm({ open, onClose, servicio, leadForm, urls }: Le
       });
       if (res.ok) {
         const data = await res.json();
-        const leadId = data?.lead_id;
-        try {
-          if (typeof window !== "undefined" && window.fbq) {
-            window.fbq('track', 'Lead', { content_name: servicio });
-          }
-        } catch (err) {
-          console.error("[LeadForm] fbq fallido:", err);
-        }
-        const redirectUrl = new URL(urls.redirectAgendar);
-        if (leadId) redirectUrl.searchParams.set("lead_id", leadId);
-        window.location.href = redirectUrl.toString();
+        goToNext(data?.lead_id);
         return;
       }
       console.error("[LeadForm] webhook respondio con status:", res.status, res.statusText);
@@ -161,9 +172,11 @@ export default function LeadForm({ open, onClose, servicio, leadForm, urls }: Le
             <Field label="Teléfono">
               <input type="tel" name="phone" placeholder="+56 9 ____ ____" required />
             </Field>
-            <Field label="Email (opcional)">
-              <input type="email" name="email" placeholder="tu@correo.com" />
-            </Field>
+            {servicio !== "otomodelacion" && (
+              <Field label="Email (opcional)">
+                <input type="email" name="email" placeholder="tu@correo.com" />
+              </Field>
+            )}
 
             <button
               type="submit"

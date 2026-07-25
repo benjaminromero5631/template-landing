@@ -130,6 +130,11 @@ const defaultConfig = {
         notaPrecio:
           "Valor de tu Otomodelación: $699.990 — todos los medios de pago, hasta 6 cuotas sin interés.",
       },
+      oferta: {
+        escasez: "Últimos 4 cupos",
+        precioAnterior: "$699.990",
+        precioFinal: "$450.000",
+      },
       resenasGoogle: [
         {
           nombre: "Valentina Rodríguez",
