@@ -13,6 +13,9 @@ Rama: `feature/otomodelacion-whatsapp-flow` (creada desde `main` actualizado). S
   - Orden ANTES: Hero → Beneficios/Testimonios → ComoFunciona → BioProfesional → TestimonioDestacado → ReseñasGoogle → PasosParaTuCupo → Oferta → CtaIntermedio → CasoDestacado → MitosRealidad → Footer.
   - Orden DESPUÉS: Hero → Beneficios/Testimonios → ComoFunciona → BioProfesional → TestimonioDestacado → Oferta → ReseñasGoogle → PasosParaTuCupo → CtaIntermedio → CasoDestacado → MitosRealidad → Footer.
 
+- `660c693` fix(otomodelacion): mejorar contraste y tamano del precio tachado en Oferta
+  - `app/otomodelacion/page.tsx`: precio anterior ($699.990 tachado) pasó de `20px`/`var(--txt-3)` (rgba blanco 45%, bajo contraste) a `clamp(24px, 4vw, 32px)`/`font-weight:600`/`var(--txt-2)` (#888888 sólido). Sigue siendo claramente secundario frente al precio final (48-76px, `var(--accent)`), pero ahora legible de un vistazo. Solo tokens ya existentes en `app/globals.css`.
+
 - `ee1afcd` feat(otomodelacion): CTA redirige a WhatsApp con pixel Lead en vez de /agendar
   - `components/LeadForm.tsx`: extrae la lógica post-submit a `goToNext(leadId?)`, condicionada por `servicio`:
     - `servicio === "otomodelacion"` → dispara `fbq('track','Lead',...)` y redirige a `https://wa.me/56945592667?text=...` con el mensaje URL-encoded pedido.
