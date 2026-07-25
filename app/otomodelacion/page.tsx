@@ -753,9 +753,11 @@ function Oferta({ onCta }: { onCta: () => void }) {
 
           <div className="flex flex-col items-center gap-2 mb-10">
             <p
-              className="font-body text-[20px]"
+              className="font-body"
               style={{
-                color: "var(--txt-3)",
+                fontSize: "clamp(24px, 4vw, 32px)",
+                fontWeight: 600,
+                color: "var(--txt-2)",
                 textDecoration: "line-through",
               }}
             >
