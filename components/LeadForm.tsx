@@ -67,7 +67,7 @@ export default function LeadForm({ open, onClose, servicio, leadForm, urls }: Le
       }
       if (servicio === "otomodelacion") {
         const mensaje = encodeURIComponent(
-          "Hola! me interesa la Otomodelacion, quiero hacerme la evaluación para optar en puerto montt"
+          "Hola, me interesa la Otomodelación, quiero hacer mi evaluación."
         );
         window.location.href = `https://wa.me/56945592667?text=${mensaje}`;
       } else {

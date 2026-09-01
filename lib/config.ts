@@ -7,7 +7,7 @@ const defaultConfig = {
   entrada: {
     tarjetaOtomodelacion: {
       titulo: "Otomodelación Definitiva",
-      descripcion: "Evento exclusivo en Puerto Montt · Cupos limitados",
+      descripcion: "Disponible en Iquique y Arica",
       imagenUrl: "/otomodelacion/caso-destacado.png",
       ctaTexto: "Ver más",
     },
@@ -110,28 +110,34 @@ const defaultConfig = {
         pasos: [
           {
             numero: 1,
+            titulo: "Consulta inicial con Isabella",
             texto:
-              "Reserva ahora tu evaluación online (precio normal $30.000, pero SOLO para Puerto Montt: $15.000)",
+              "Escribe por WhatsApp para la evaluación. Te solicitaremos autorización para datos de salud, y luego se pide: nombre, RUT, edad, dirección, enfermedades, cirugías previas, alergias, medicamentos y celular de contacto.",
           },
           {
             numero: 2,
+            titulo: "Envío de fotos",
             texto:
-              "Conoce a la profesional a cargo, resuelve tus dudas y confirma si eres candidata a la Otomodelación",
+              "Se piden 3 fotos en orden: de frente, perfil izquierdo y perfil derecho — necesarias para que Isabella evalúe la candidatura.",
           },
           {
             numero: 3,
-            texto: "Deja agendado tu cupo en las fechas disponibles en Puerto Montt",
+            titulo: "Evaluación de Isabella",
+            texto: "Se revisa en 30 a 60 minutos si aprueba o no la Otomodelación.",
           },
           {
             numero: 4,
-            texto: "Los $15.000 se descuentan de tu total al momento del procedimiento",
+            titulo: "Agendamiento",
+            texto: "Si es aprobado, el paciente recibe el link directo para reservar su hora.",
           },
         ],
-        notaPrecio:
-          "Valor de tu Otomodelación: $699.990 — todos los medios de pago, hasta 6 cuotas sin interés.",
+        notaPrecio: {
+          precioAnterior: "$699.990",
+          precioFinal: "$450.000",
+          mediosPago: "Medios de pago: débito y crédito.",
+        },
       },
       oferta: {
-        escasez: "Últimos 4 cupos",
         precioAnterior: "$699.990",
         precioFinal: "$450.000",
       },
@@ -165,7 +171,7 @@ const defaultConfig = {
       ctaIntermedio: {
         ctaTexto: "Reserva tu hora",
         parrafos: [
-          "Estaré en Puerto Montt solo el 11, 12 y 13 de agosto — máximo 8 cupos para todo el viaje. Agenda tu evaluación ahora.",
+          "Disponible en Iquique y Arica. Agenda tu evaluación ahora.",
         ],
       },
       casoDestacado: {
@@ -183,15 +189,15 @@ const defaultConfig = {
         historia: [
           "Soy Isabella, enfermera de profesión — trabajé en la urgencia y UPCA del Hospital Regional antes de dedicarme por completo a la estética. Llevo 5 años especializada en Otomodelación, la técnica que ayudé a traer a Chile, y ya son más de 20.000 pacientes.",
           "Lo que más me apasiona es verlos felices con los resultados — por eso me dedico a esto. Sin cirugía, sin miedo, sin vueltas.",
-          "Iquiqueña de corazón, viajo hasta Puerto Montt porque no todos pueden llegar a mi sucursal — y a ti quiero conocerte en persona.",
+          "Ahora también en Arica — y a ti quiero conocerte en persona.",
         ],
         ctaTexto: "Reserva tu hora",
       },
       leadForm: {
         modalTitulo: "Reserva tu hora",
-        modalSubtitulo: "Déjanos tus datos y te confirmamos disponibilidad. Cupos limitados en Puerto Montt.",
+        modalSubtitulo: "Déjanos tus datos y te confirmamos disponibilidad en Iquique y Arica.",
         botonSubmit: "Quiero mi hora",
-        mensajeExito: "¡Listo! Pronto te contactaremos para confirmar tu evaluación en Puerto Montt.",
+        mensajeExito: "¡Listo! Pronto te contactaremos para confirmar tu evaluación en Iquique y Arica.",
       },
       urls: {
         webhookN8n:
@@ -199,7 +205,7 @@ const defaultConfig = {
         redirectAgendar: "https://estetica-crm.vercel.app/agendar",
       },
       footer: {
-        copyright: "Clínica Isabella · Otomodelación Definitiva · Puerto Montt",
+        copyright: "Clínica Isabella · Otomodelación Definitiva · Iquique y Arica",
       },
     },
     metodoRegenerativo: {

@@ -173,12 +173,6 @@ function Hero({ onCta }: { onCta: () => void }) {
 
         <div style={{ marginTop: 40 }}>
           <CtaButton onClick={onCta}>{svc.hero.ctaTexto}</CtaButton>
-          <p
-            className="font-body text-[13px] font-semibold mt-3"
-            style={{ color: "var(--accent)" }}
-          >
-            {svc.oferta.escasez}
-          </p>
         </div>
       </FadeIn>
     </section>
@@ -662,7 +656,7 @@ function PasosParaTuCupo() {
               color: "var(--white)",
             }}
           >
-            Pasos para tu cupo
+            Otomodelación — pasos para agendar (requiere evaluación previa)
           </h2>
         </FadeIn>
 
@@ -704,12 +698,25 @@ function PasosParaTuCupo() {
                   >
                     {paso.numero}
                   </div>
-                  <p
-                    className="font-body text-[15px] leading-relaxed pt-2"
-                    style={{ color: "var(--white)" }}
-                  >
-                    {paso.texto}
-                  </p>
+                  <div className="pt-2">
+                    <p
+                      style={{
+                        fontFamily: "var(--font-sans)",
+                        fontWeight: 700,
+                        fontSize: 20,
+                        color: "var(--accent)",
+                        marginBottom: 6,
+                      }}
+                    >
+                      {paso.titulo}
+                    </p>
+                    <p
+                      className="font-body text-[15px] leading-relaxed"
+                      style={{ color: "var(--white)" }}
+                    >
+                      {paso.texto}
+                    </p>
+                  </div>
                 </div>
               </FadeIn>
             ))}
@@ -717,12 +724,23 @@ function PasosParaTuCupo() {
         </div>
 
         <FadeIn delay={svc.pasosParaTuCupo.pasos.length * 120 + 120}>
-          <p
-            className="font-body text-[15px] leading-relaxed text-center mt-12"
-            style={{ color: "var(--accent)", fontWeight: 700 }}
-          >
-            {svc.pasosParaTuCupo.notaPrecio}
-          </p>
+          <div className="flex flex-col items-center gap-2 text-center mt-12">
+            <p
+              className="font-body text-[16px]"
+              style={{ color: "var(--txt-2)", textDecoration: "line-through" }}
+            >
+              {svc.pasosParaTuCupo.notaPrecio.precioAnterior}
+            </p>
+            <p
+              className="font-body text-[22px]"
+              style={{ color: "var(--accent)", fontWeight: 700 }}
+            >
+              Valor de tu Otomodelación: {svc.pasosParaTuCupo.notaPrecio.precioFinal}
+            </p>
+            <p className="font-body text-[14px]" style={{ color: "var(--txt-2)" }}>
+              {svc.pasosParaTuCupo.notaPrecio.mediosPago}
+            </p>
+          </div>
         </FadeIn>
       </div>
     </section>
@@ -746,17 +764,6 @@ function Oferta({ onCta }: { onCta: () => void }) {
       <FadeBottom to="var(--bg)" />
       <div className="max-w-2xl mx-auto text-center" style={{ position: "relative", zIndex: 1 }}>
         <FadeIn>
-          <span
-            className="inline-block font-body text-[13px] font-bold tracking-[0.1em] uppercase mb-8 px-6 py-3"
-            style={{
-              color: "#FFFFFF",
-              background: "linear-gradient(135deg, #000000 0%, #C4974A 100%)",
-              borderRadius: 999,
-            }}
-          >
-            {svc.oferta.escasez}
-          </span>
-
           <div className="flex flex-col items-center gap-2 mb-10">
             <p
               className="font-body"
@@ -818,12 +825,6 @@ function CtaIntermedio({ onCta }: { onCta: () => void }) {
             ))}
           </div>
           <CtaButton onClick={onCta}>{svc.ctaIntermedio.ctaTexto}</CtaButton>
-          <p
-            className="font-body text-[13px] font-semibold mt-3"
-            style={{ color: "var(--accent)" }}
-          >
-            {svc.oferta.escasez}
-          </p>
         </FadeIn>
       </div>
     </section>
@@ -950,12 +951,6 @@ function BioProfesional({ onCta }: { onCta: () => void }) {
           </div>
 
           <CtaButton onClick={onCta}>{svc.bioProfesional.ctaTexto}</CtaButton>
-          <p
-            className="font-body text-[13px] font-semibold mt-3"
-            style={{ color: "var(--accent)" }}
-          >
-            {svc.oferta.escasez}
-          </p>
         </FadeIn>
       </div>
     </section>
