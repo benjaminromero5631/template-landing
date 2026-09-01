@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Script from "next/script";
 import FadeIn from "@/components/FadeIn";
 import Footer from "@/components/sections/Footer";
 import Header from "@/components/Header";
@@ -611,6 +612,43 @@ function ReseñasGoogle() {
   );
 }
 
+/* ─── Widget de reseñas de Google (Elfsight) ─── */
+function GoogleReviewsWidget() {
+  return (
+    <section
+      style={{
+        width: "100%",
+        backgroundColor: "var(--bg)",
+        borderTop: "1px solid var(--hairline)",
+        padding: "96px 16px",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      <GlowSoft />
+      <FadeBottom to="var(--bg)" />
+      <div className="max-w-5xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
+        <FadeIn>
+          <h2
+            className="text-center mb-14"
+            style={{
+              fontFamily: "var(--font-sans)",
+              fontWeight: 700,
+              fontSize: "clamp(28px, 5vw, 40px)",
+              lineHeight: 1.2,
+              color: "var(--white)",
+            }}
+          >
+            Reseñas en Google
+          </h2>
+          <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
+          <div className="elfsight-app-ada9122c-a786-4a8c-9552-e59ec996cd63" data-elfsight-app-lazy=""></div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
 /* ─── Pasos para tu cupo ─── */
 function PasosParaTuCupo() {
   const lineRef = useRef<HTMLDivElement>(null);
@@ -979,6 +1017,7 @@ export default function Page() {
       <BioProfesional onCta={() => setFormOpen(true)} />
       <TestimonioDestacado />
       <ReseñasGoogle />
+      <GoogleReviewsWidget />
       <PasosParaTuCupo />
       <CtaIntermedio onCta={() => setFormOpen(true)} />
       <CasoDestacado />
