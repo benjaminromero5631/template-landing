@@ -492,7 +492,7 @@ function MitosRealidad({ onCta }: { onCta: () => void }) {
 
         <FadeIn delay={svc.mitosRealidad.pares.length * 60 + 120}>
           <div className="text-center mt-10">
-            <CtaButton onClick={onCta}>Reserva tu hora</CtaButton>
+            <CtaButton onClick={onCta}>Evalúa mi caso</CtaButton>
           </div>
         </FadeIn>
       </div>
@@ -827,7 +827,7 @@ function Oferta({ onCta }: { onCta: () => void }) {
             </p>
           </div>
 
-          <CtaButton onClick={onCta}>Reserva tu hora</CtaButton>
+          <CtaButton onClick={onCta}>Quiero mi evaluación</CtaButton>
         </FadeIn>
       </div>
     </section>

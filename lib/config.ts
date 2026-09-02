@@ -28,7 +28,7 @@ const defaultConfig = {
         subtitulo: "Resultados visibles desde el primer día.",
         heroTrustLine:
           "Pionera en traer la Otomodelación a Chile, con experiencia dedicada a esta técnica.",
-        ctaTexto: "Reserva tu hora",
+        ctaTexto: "Solicita tu evaluación",
         vslCaption: "Mira cómo lo lograron nuestras pacientes →",
         vslUrl:
           "https://pub-9d6d6408529a4707b501fc6834124584.r2.dev/VSL-Isabella-Otomodelacion%20(1).mp4",
@@ -169,7 +169,7 @@ const defaultConfig = {
         },
       ],
       ctaIntermedio: {
-        ctaTexto: "Reserva tu hora",
+        ctaTexto: "Solicita tu evaluación",
         parrafos: [
           "Disponible en Iquique y Arica. Agenda tu evaluación ahora.",
         ],
@@ -191,12 +191,12 @@ const defaultConfig = {
           "Lo que más me apasiona es verlos felices con los resultados — por eso me dedico a esto. Sin cirugía, sin miedo, sin vueltas.",
           "Ahora también en Arica — y a ti quiero conocerte en persona.",
         ],
-        ctaTexto: "Reserva tu hora",
+        ctaTexto: "Evalúa mi caso",
       },
       leadForm: {
-        modalTitulo: "Reserva tu hora",
+        modalTitulo: "Solicita tu evaluación",
         modalSubtitulo: "Déjanos tus datos y te confirmamos disponibilidad en Iquique y Arica.",
-        botonSubmit: "Quiero mi hora",
+        botonSubmit: "Enviar mi solicitud",
         mensajeExito: "¡Listo! Pronto te contactaremos para confirmar tu evaluación en Iquique y Arica.",
       },
       urls: {
