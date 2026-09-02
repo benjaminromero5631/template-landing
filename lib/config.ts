@@ -31,7 +31,7 @@ const defaultConfig = {
         ctaTexto: "Reserva tu hora",
         vslCaption: "Mira cómo lo lograron nuestras pacientes →",
         vslUrl:
-          "https://pub-76a904125ecf45e688bc318915e6190c.r2.dev/clinicas/VSL-Isabella-Otomodelacion.mp4",
+          "https://pub-9d6d6408529a4707b501fc6834124584.r2.dev/VSL-Isabella-Otomodelacion%20(1).mp4",
       },
       beneficios: {
         titulo: "Tu primera consulta incluye",
